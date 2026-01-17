@@ -71,6 +71,13 @@
         ul { margin-left: 1.5rem; color: var(--text-secondary); }
         li { margin-bottom: 0.5rem; }
         .back-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .project-image {
+            width: 100%;
+            max-width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
         .highlight { 
             background: #fff3cd; 
             padding: 1rem; 
@@ -137,7 +144,12 @@
             <div class="achievement-box">
                 <h3>🏆 주요 성과</h3>
                 <p><strong>COCO Segmentation Benchmark에서 33.2%로 비공식 1위 달성</strong> (Papers with code 기준)</p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://github.com/hanseungsoo13/2024_dna_conference" target="_blank" style="color: var(--accent); font-weight: 500;">📁 GitHub Repository →</a>
+                </p>
             </div>
+
+            <img src="images/segcir/model_architecture.png" alt="SegCIR 모델 아키텍처" class="project-image">
 
             <section>
                 <h2>프로젝트 개요</h2>
@@ -218,6 +230,7 @@
                     특히 텍스트 쿼리가 특정 객체나 영역에 집중하는 경우, 
                     전체 이미지를 사용하는 기존 방법 대비 큰 성능 향상을 보였습니다.
                 </p>
+                <img src="images/segcir/inference_image.png" alt="SegCIR 추론 결과 예시" class="project-image" style="margin-top: 1.5rem;">
             </section>
 
             <section>

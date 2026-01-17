@@ -71,6 +71,13 @@
         ul { margin-left: 1.5rem; color: var(--text-secondary); }
         li { margin-bottom: 0.5rem; }
         .back-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .project-image {
+            width: 100%;
+            max-width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -103,6 +110,23 @@
             margin: 1.5rem 0;
             border-radius: 4px;
         }
+        .achievement-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-left: 4px solid #4caf50;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .achievement-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        @media (max-width: 600px) {
+            .project-image {
+                margin: 1rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -127,6 +151,20 @@
                     <span class="tech-tag">Super Resolution</span>
                 </div>
             </div>
+
+            <div class="achievement-box">
+                <h3>🏆 주요 성과</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>IRSR 분야 최초 Knowledge Distillation 적용:</strong> IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</li>
+                    <li><strong>성능 향상:</strong> 일반적인 학습 프레임워크 대비 4%의 성능 향상 달성</li>
+                    <li><strong>학술적 성과:</strong> ICTC 2025 투고 및 Oral Session 발표</li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    <a href="https://github.com/hanseungsoo13/Enhancing-Lightweight-IRSR" target="_blank" style="color: var(--accent); font-weight: 500;">📁 GitHub Repository →</a>
+                </p>
+            </div>
+
+            <img src="images/IRSR/our Framework.jpg" alt="IRSR Knowledge Distillation Framework" class="project-image">
 
             <section>
                 <h2>프로젝트 개요</h2>
@@ -157,10 +195,9 @@
             <section>
                 <h2>주요 기여사항</h2>
                 <ul>
-                    <li><strong>IRSR 분야 최초 Knowledge Distillation 적용:</strong> IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</li>
                     <li><strong>IR 특화 Loss Function 설계:</strong> IR 이미지에 특화된 Sobel Transform 기반 Structural Loss와 Spectral Loss 개발</li>
-                    <li><strong>성능 향상:</strong> 일반적인 학습 프레임워크 대비 4%의 성능 향상 달성</li>
-                    <li><strong>학술적 성과:</strong> ICTC 2025 투고 및 Oral Session 발표</li>
+                    <li><strong>Teacher-Student 구조 최적화:</strong> Knowledge Distillation을 통한 경량 모델 성능 향상</li>
+                    <li><strong>실험 검증:</strong> 다양한 실험을 통한 방법론의 효과성 입증</li>
                 </ul>
             </section>
 
@@ -210,6 +247,10 @@
                     특히 Sobel Loss와 Spectral Loss의 조합이 IR 이미지의 특성을 잘 보존하면서
                     성능 향상에 기여함을 실험을 통해 검증했습니다.
                 </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+                    <img src="images/IRSR/Result Table.png" alt="IRSR 실험 결과 테이블" class="project-image" style="margin: 0;">
+                    <img src="images/IRSR/Result Figure.png" alt="IRSR 실험 결과 그래프" class="project-image" style="margin: 0;">
+                </div>
             </section>
 
             <section>

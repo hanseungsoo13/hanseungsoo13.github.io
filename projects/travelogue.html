@@ -103,6 +103,18 @@
             margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
+        .achievement-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-left: 4px solid #4caf50;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .achievement-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
     </style>
 </head>
 <body>
@@ -129,7 +141,20 @@
                 </div>
             </div>
 
-            <img src="images/travelogue.png" alt="트래블로그 프로젝트" class="project-image">
+            <img src="images/travelogue/travelogue.png" alt="트래블로그 프로젝트" class="project-image">
+
+            <div class="achievement-box">
+                <h3>🏆 주요 성과</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>성능 향상:</strong> 기존 LLM 대비 10% 이상 향상된 블로그 품질 달성</li>
+                    <li><strong>학술적 성과:</strong> 한국컴퓨터정보학회 논문지(KCI)에 투고</li>
+                    <li><strong>VLM과 LLM의 협업 파이프라인:</strong> Qwen-VL과 HyperCLOVA X를 결합한 효과적인 시스템 구축</li>
+                    <li><strong>Product Serving:</strong> FastAPI와 Docker를 활용한 실제 서비스 배포</li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    <a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12263460" target="_blank" style="color: var(--accent); font-weight: 500;">📄 논문 보기 (DBpia) →</a>
+                </p>
+            </div>
 
             <section>
                 <h2>프로젝트 개요</h2>
@@ -148,13 +173,10 @@
             <section>
                 <h2>주요 기여사항</h2>
                 <ul>
-                    <li><strong>VLM과 LLM의 협업 파이프라인 구축:</strong> Qwen-VL을 활용한 이미지 맥락 추출과 HyperCLOVA X를 활용한 블로그 생성</li>
                     <li><strong>프롬프트 엔지니어링:</strong> 블로그 스타일, 톤, 구조를 제어하는 체계적인 프롬프트 설계</li>
                     <li><strong>파인튜닝:</strong> 한국어 대규모 언어모델 파인튜닝을 통한 도메인 특화 성능 확보</li>
-                    <li><strong>성능 향상:</strong> 기존 LLM 대비 10% 이상 향상된 블로그 품질 달성</li>
                     <li><strong>AI Safety:</strong> 부적절한 콘텐츠 생성을 방지하는 안전장치 구현</li>
                     <li><strong>효율성 개선:</strong> 멀티 프로세싱을 통한 추론 시간 단축 및 GPU 활용 최적화</li>
-                    <li><strong>Product Serving:</strong> FastAPI와 Docker를 활용한 서비스 배포</li>
                 </ul>
             </section>
 
