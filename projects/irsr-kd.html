@@ -71,6 +71,38 @@
         ul { margin-left: 1.5rem; color: var(--text-secondary); }
         li { margin-bottom: 0.5rem; }
         .back-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: #e8f4f8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .method-box {
+            background: #fff9e6;
+            padding: 1.5rem;
+            border-left: 4px solid #ffc107;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -88,41 +120,116 @@
                     <span>Funzin · ICTC 2025 Oral Session</span>
                     <span>2025.04 - 2025.07</span>
                 </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Knowledge Distillation</span>
+                    <span class="tech-tag">IR Image Processing</span>
+                    <span class="tech-tag">Super Resolution</span>
+                </div>
             </div>
 
             <section>
-                <h2>Overview</h2>
+                <h2>프로젝트 개요</h2>
                 <p>
                     IR(적외선) Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크를 제안한 연구입니다.
+                    열영상 이미지 초해상도 모델(IRSR)에 Knowledge Distillation을 적용하여 경량화된 모델의 성능을 향상시켰습니다.
                     이 연구는 ICTC 2025 학회에 투고되어 Oral Session에서 발표되었습니다.
+                </p>
+                <p>
+                    적외선 이미지는 가시광선 이미지와 다른 특성을 가지며, 특히 열 정보와 구조적 특징이 중요합니다.
+                    본 연구는 이러한 IR 이미지의 특성을 고려한 Knowledge Distillation 방법론을 제안했습니다.
                 </p>
             </section>
 
             <section>
-                <h2>Key Contributions</h2>
+                <h2>연구 배경 및 동기</h2>
+                <p>
+                    IR Image Super Resolution은 방산, 보안, 의료 등 다양한 분야에서 중요한 기술입니다.
+                    그러나 고성능 모델은 파라미터 수가 많아 실시간 추론이 어렵고, 경량 모델은 성능이 낮은 문제가 있습니다.
+                    Knowledge Distillation은 Teacher 모델의 지식을 Student 모델에 전달하여 경량화와 성능 향상을 동시에 달성할 수 있는 방법입니다.
+                </p>
+                <p>
+                    기존 Knowledge Distillation 연구는 주로 가시광선 이미지에 초점을 맞추고 있어,
+                    IR 이미지의 특성을 고려한 연구가 필요했습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>주요 기여사항</h2>
                 <ul>
-                    <li>IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</li>
-                    <li>IR 이미지에 특화된 Sobel Transform, Spectral Loss를 활용한 Loss Function 설계</li>
-                    <li>일반적인 학습 프레임워크 대비 4%의 성능 향상 달성</li>
-                    <li>ICTC 2025 투고 및 Oral Session 발표</li>
+                    <li><strong>IRSR 분야 최초 Knowledge Distillation 적용:</strong> IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</li>
+                    <li><strong>IR 특화 Loss Function 설계:</strong> IR 이미지에 특화된 Sobel Transform 기반 Structural Loss와 Spectral Loss 개발</li>
+                    <li><strong>성능 향상:</strong> 일반적인 학습 프레임워크 대비 4%의 성능 향상 달성</li>
+                    <li><strong>학술적 성과:</strong> ICTC 2025 투고 및 Oral Session 발표</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Technical Details</h2>
+                <h2>기술적 방법론</h2>
+                <div class="method-box">
+                    <h3>Knowledge Distillation 프레임워크</h3>
+                    <p>
+                        Teacher-Student 구조를 사용하여 대규모 Teacher 모델의 지식을 경량 Student 모델에 전달합니다.
+                        Teacher 모델은 높은 성능을 보이지만 추론 속도가 느리고, Student 모델은 경량이지만 성능이 낮습니다.
+                        Knowledge Distillation을 통해 Student 모델이 Teacher 모델의 성능에 근접하도록 학습시킵니다.
+                    </p>
+                </div>
+                <div class="highlight-box">
+                    <h3>1. Structural Loss (Sobel Loss)</h3>
+                    <p>
+                        IR 이미지의 구조적 정보를 보존하기 위해 Sobel Transform을 활용한 Edge Loss를 설계했습니다.
+                        Sobel 연산자를 사용하여 이미지의 경계와 구조적 특징을 추출하고,
+                        Teacher와 Student 모델의 출력 간 구조적 차이를 측정합니다.
+                    </p>
+                </div>
+                <div class="highlight-box">
+                    <h3>2. Spectral Loss</h3>
+                    <p>
+                        IR 이미지는 주파수 영역에서 특정 패턴을 보입니다.
+                        FFT(Fast Fourier Transform)를 활용하여 주파수 영역에서의 차이를 측정하는 Spectral Loss를 개발했습니다.
+                        이를 통해 IR 이미지의 주파수 특성을 보존할 수 있습니다.
+                    </p>
+                </div>
+                <div class="highlight-box">
+                    <h3>3. 통합 Loss Function</h3>
+                    <p>
+                        기존의 Pixel Loss, Perceptual Loss와 함께 새로 개발한 Structural Loss와 Spectral Loss를 조합하여
+                        IR 이미지에 최적화된 통합 Loss Function을 설계했습니다.
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>실험 및 결과</h2>
                 <p>
-                    본 연구에서는 Teacher-Student 구조의 Knowledge Distillation을 IR 영상의 Super Resolution에 적용했습니다.
-                    특히 IR 이미지의 특성을 고려하여 Sobel Transform 기반의 Edge Loss와 Spectral Loss를 조합한 
-                    새로운 Loss Function을 설계하여 구조적 정보와 주파수 영역의 정보를 동시에 학습할 수 있도록 했습니다.
+                    제안한 방법론은 기존의 일반적인 학습 프레임워크 대비 PSNR 기준 4%의 성능 향상을 달성했습니다.
+                    경량화된 Student 모델에서도 Teacher 모델에 근접한 성능을 보여주었으며,
+                    추론 속도는 크게 향상되었습니다.
+                </p>
+                <p>
+                    특히 Sobel Loss와 Spectral Loss의 조합이 IR 이미지의 특성을 잘 보존하면서
+                    성능 향상에 기여함을 실험을 통해 검증했습니다.
                 </p>
             </section>
 
             <section>
-                <h2>Results</h2>
+                <h2>학술적 성과</h2>
                 <p>
-                    제안한 방법론은 기존의 일반적인 학습 프레임워크 대비 PSNR 기준 4%의 성능 향상을 달성했으며,
-                    경량화된 Student 모델에서도 Teacher 모델에 근접한 성능을 보여주었습니다.
+                    본 연구는 ICTC 2025 (International Conference on ICT Convergence)에 투고되어
+                    Oral Session에서 발표되었습니다. IR Image Super Resolution 분야에 Knowledge Distillation을
+                    적용한 최초의 연구로서 학술적 가치를 인정받았습니다.
                 </p>
+            </section>
+
+            <section>
+                <h2>배운 점</h2>
+                <ul>
+                    <li>Knowledge Distillation의 이론과 실무 적용 방법</li>
+                    <li>IR 이미지의 특성과 처리 방법</li>
+                    <li>도메인 특화 Loss Function 설계 경험</li>
+                    <li>학술 논문 작성 및 학회 발표 경험</li>
+                    <li>Super Resolution 분야의 최신 연구 동향</li>
+                </ul>
             </section>
 
             <div class="back-link">

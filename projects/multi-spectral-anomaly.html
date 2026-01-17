@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Spectral Image Anomaly Detection | Han Seung Soo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b6b6b;
+            --accent: #2563eb;
+            --border-color: #e5e5e5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+        header a { color: var(--text-secondary); font-size: 0.9rem; }
+        main { padding: 3rem 0; }
+        .project-meta {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .project-category {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .project-info {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .project-info span { margin-right: 1.5rem; }
+        section { margin-bottom: 2.5rem; }
+        h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+        ul { margin-left: 1.5rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+        .back-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: #e8f4f8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Home</a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="project-meta">
+                <span class="project-category">Computer Vision</span>
+                <h1>Multi Spectral Image Anomaly Detection</h1>
+                <div class="project-info">
+                    <span>Funzin · 개발 과제</span>
+                    <span>2025.11 - 진행중</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Multi-Spectral Imaging</span>
+                    <span class="tech-tag">Anomaly Detection</span>
+                    <span class="tech-tag">FFT</span>
+                    <span class="tech-tag">Streamlit</span>
+                </div>
+            </div>
+
+            <section>
+                <h2>프로젝트 개요</h2>
+                <p>
+                    다분광으로 촬영된 이미지 속 위장막을 식별하는 프로젝트입니다.
+                    다분광 이미지는 여러 파장 대역의 정보를 포함하고 있어, 가시광선 이미지로는 구분하기 어려운 
+                    위장막을 효과적으로 검출할 수 있습니다.
+                </p>
+                <p>
+                    본 프로젝트는 다분광 이미지 정합, 이상 탐지 방법론 개발, 데이터 라벨링 툴 개발 등을 포함합니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>주요 역할</h2>
+                <ul>
+                    <li>다분광 이미지 정합</li>
+                    <li>Anomaly Detection 방법론 개발</li>
+                    <li>Data Labelling 툴 개발</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>주요 성과</h2>
+                
+                <div class="highlight-box">
+                    <h3>1. 다분광 이미지 정합</h3>
+                    <ul>
+                        <li><strong>FFT 기반 정합:</strong> FFT(Fast Fourier Transform)를 활용한 다분광(4 channel) 이미지 정합 구현</li>
+                        <li><strong>주파수 영역 변환:</strong> 주파수 영역에서의 상관관계를 활용하여 여러 채널 간 정합 수행</li>
+                        <li><strong>정합 정확도 향상:</strong> 기하학적 변환과 주파수 영역 분석을 결합하여 높은 정합 정확도 달성</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>2. Anomaly Detection 방법론</h3>
+                    <ul>
+                        <li><strong>Multi Scale Filter:</strong> 다양한 스케일의 필터를 사용하여 주변과 달리 anomal feature 값을 갖는 픽셀을 검출</li>
+                        <li><strong>Feature 기반 탐지:</strong> 다분광 이미지의 특정 파장 대역에서 나타나는 특징을 활용한 이상 탐지</li>
+                        <li><strong>Cosine Similarity 기반 선별:</strong> 기존에 알고 있는 위장막 다분광 feature와 Cosine Similarity가 높은 픽셀들을 선별</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>3. 데이터 라벨링 툴 개발</h3>
+                    <ul>
+                        <li><strong>Streamlit 기반 툴:</strong> 기존 라벨링 툴과 다르게 다분광 이미지를 정합한 뒤에 라벨링 할 수 있는 툴을 Streamlit으로 제작</li>
+                        <li><strong>다채널 시각화:</strong> 4개 채널의 다분광 이미지를 효과적으로 시각화하고 라벨링할 수 있는 인터페이스 제공</li>
+                        <li><strong>정합 후 라벨링:</strong> 정합된 이미지를 기반으로 정확한 라벨링 수행 가능</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>기술적 접근 방법</h2>
+                <p>
+                    <strong>1단계: 이미지 정합</strong><br>
+                    FFT를 활용하여 4개 채널의 다분광 이미지를 정합합니다. 주파수 영역에서의 상관관계를 분석하여
+                    각 채널 간의 기하학적 변환을 보정합니다.
+                </p>
+                <p>
+                    <strong>2단계: 이상 탐지</strong><br>
+                    Multi Scale Filter를 사용하여 주변 픽셀과 다른 특성을 가진 픽셀을 검출합니다.
+                    위장막의 다분광 특성을 학습하여 Cosine Similarity 기반으로 위장막을 식별합니다.
+                </p>
+                <p>
+                    <strong>3단계: 결과 시각화</strong><br>
+                    검출된 위장막을 원본 이미지에 오버레이하여 시각화합니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>다분광 이미지 처리</h2>
+                <p>
+                    다분광 이미지는 여러 파장 대역(채널)의 정보를 포함하고 있어, 각 채널마다 다른 정보를 담고 있습니다.
+                    본 프로젝트에서는 4개 채널의 다분광 이미지를 처리하며, 각 채널의 정보를 효과적으로 활용하기 위해
+                    정합이 필수적입니다.
+                </p>
+                <ul>
+                    <li><strong>TFF 파일 처리:</strong> 다분광 이미지의 표준 형식인 TFF 파일을 읽고 처리</li>
+                    <li><strong>식생지수 연산:</strong> NDVI(Normalized Difference Vegetation Index) 등 식생지수를 활용한 분석</li>
+                    <li><strong>스펙트럼 분석:</strong> 각 픽셀의 스펙트럼 특성을 분석하여 위장막 식별</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>배운 점</h2>
+                <ul>
+                    <li>Multi Spectral image의 개념 및 TFF 파일, 식생지수 연산 등 활용 방법</li>
+                    <li>Image Anomaly Detection 방법론 (예: Reed Xiaoli Detector)</li>
+                    <li>FFT를 활용한 이미지 정합 기법</li>
+                    <li>Multi Scale Filter를 활용한 이상 탐지</li>
+                    <li>Cosine Similarity를 활용한 특징 기반 매칭</li>
+                    <li>Streamlit을 활용한 데이터 라벨링 툴 개발</li>
+                    <li>다채널 이미지 처리 및 시각화 방법</li>
+                </ul>
+            </section>
+
+            <div class="back-link">
+                <a href="../index.html">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

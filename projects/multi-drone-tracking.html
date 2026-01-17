@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Drone View Multi Object Tracking | Han Seung Soo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b6b6b;
+            --accent: #2563eb;
+            --border-color: #e5e5e5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+        header a { color: var(--text-secondary); font-size: 0.9rem; }
+        main { padding: 3rem 0; }
+        .project-meta {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .project-category {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .project-info {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .project-info span { margin-right: 1.5rem; }
+        section { margin-bottom: 2.5rem; }
+        h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+        ul { margin-left: 1.5rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+        .back-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: #e8f4f8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Home</a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="project-meta">
+                <span class="project-category">Computer Vision</span>
+                <h1>Multi Drone View Multi Object Tracking</h1>
+                <div class="project-info">
+                    <span>Funzin · 팀 프로젝트 (참여도 60%)</span>
+                    <span>2025.11 - 진행중</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">YOLO</span>
+                    <span class="tech-tag">Kalman Filter</span>
+                    <span class="tech-tag">SORT</span>
+                    <span class="tech-tag">Re-Identification</span>
+                    <span class="tech-tag">IsaacSIM</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+
+            <section>
+                <h2>프로젝트 개요</h2>
+                <p>
+                    다중 드론에서 촬영된 영상 속 다중 객체를 추적하고 재식별(Re-Identification)하는 시스템을 개발하고 있습니다.
+                    여러 드론의 카메라에서 촬영된 영상에서 동일한 객체를 식별하고 추적하는 것이 주요 목표입니다.
+                </p>
+                <p>
+                    본 프로젝트는 실시간 객체 추적, 다중 카메라 간 객체 재식별, GPS 위치 추정 등의 기능을 포함합니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>주요 역할</h2>
+                <ul>
+                    <li>Real Time Object Tracker 구현</li>
+                    <li>다중 객체 Re-Identification 구현</li>
+                    <li>시뮬레이터 개발</li>
+                    <li>데이터셋 구축</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>주요 성과</h2>
+                
+                <div class="highlight-box">
+                    <h3>1. 단일 카메라 객체 추적</h3>
+                    <ul>
+                        <li><strong>YOLO + Kalman Filter:</strong> YOLO를 활용한 객체 검출과 Kalman Filter를 결합한 실시간 객체 추적 시스템 구현</li>
+                        <li><strong>안정적인 추적:</strong> Kalman Filter를 통해 객체의 위치와 속도를 예측하여 일시적인 검출 실패에도 안정적인 추적 유지</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>2. GPS 위치 추정</h3>
+                    <ul>
+                        <li><strong>IMU 정보 활용:</strong> 드론의 IMU(Inertial Measurement Unit) 정보와 카메라 파라미터를 활용하여 객체의 GPS 위치 추정</li>
+                        <li><strong>카메라 파라미터:</strong> 카메라의 내부/외부 파라미터를 사용하여 이미지 좌표를 3D 공간 좌표로 변환</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>3. 다중 카메라 객체 Re-ID</h3>
+                    <ul>
+                        <li><strong>BFS 알고리즘:</strong> Breadth-First Search 알고리즘을 활용하여 다중 카메라 간 객체 매칭</li>
+                        <li><strong>SORT 모델:</strong> Simple Online and Realtime Tracking (SORT) 모델을 활용한 객체 추적 및 재식별</li>
+                        <li><strong>다중 뷰 통합:</strong> 여러 드론의 카메라에서 촬영된 동일 객체를 식별하고 통합 추적</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>4. 시뮬레이터 개발</h3>
+                    <ul>
+                        <li><strong>IsaacSIM 활용:</strong> IsaacSIM 시뮬레이터로 드론 카메라 움직임 구현</li>
+                        <li><strong>데이터셋 생성:</li> 학습 및 추론에 필요한 데이터셋을 시뮬레이터를 통해 생성</li>
+                        <li><strong>스트리밍 서버:</strong> 시뮬레이터에서 생성된 영상을 실시간으로 스트리밍하는 서버 연결 구현</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>기술적 접근 방법</h2>
+                <p>
+                    <strong>1단계: 객체 검출 및 추적</strong><br>
+                    각 드론의 카메라 영상에서 YOLO를 사용하여 객체를 검출하고, Kalman Filter를 통해 객체를 추적합니다.
+                </p>
+                <p>
+                    <strong>2단계: GPS 위치 추정</strong><br>
+                    검출된 객체의 이미지 좌표와 드론의 IMU 정보, 카메라 파라미터를 활용하여 객체의 실제 GPS 위치를 추정합니다.
+                </p>
+                <p>
+                    <strong>3단계: 다중 카메라 Re-ID</strong><br>
+                    BFS 알고리즘과 SORT 모델을 활용하여 여러 드론의 카메라에서 촬영된 동일 객체를 식별하고 매칭합니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>배운 점</h2>
+                <ul>
+                    <li>Kalman Filter 및 Object Tracking 개념 및 구현</li>
+                    <li>IsaacSIM 시뮬레이터 활용 방법 및 스트리밍 서버 연결 구현</li>
+                    <li>다중 카메라 환경에서의 객체 재식별 방법론</li>
+                    <li>GPS 위치 추정을 위한 카메라 캘리브레이션 및 좌표 변환</li>
+                    <li>Git을 활용한 협업 방법 및 Issue 및 Branch 관리 방법 고안</li>
+                    <li>팀 프로젝트에서의 역할 분담 및 협업 경험</li>
+                </ul>
+            </section>
+
+            <div class="back-link">
+                <a href="../index.html">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

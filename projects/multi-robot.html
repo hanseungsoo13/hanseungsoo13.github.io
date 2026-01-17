@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이기종 협동 로봇 전시 | Han Seung Soo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b6b6b;
+            --accent: #2563eb;
+            --border-color: #e5e5e5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+        header a { color: var(--text-secondary); font-size: 0.9rem; }
+        main { padding: 3rem 0; }
+        .project-meta {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .project-category {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .project-info {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .project-info span { margin-right: 1.5rem; }
+        section { margin-bottom: 2.5rem; }
+        h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+        ul { margin-left: 1.5rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+        .back-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: #e8f4f8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .achievement-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-left: 4px solid #4caf50;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Home</a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="project-meta">
+                <span class="project-category">Robotics</span>
+                <h1>이기종 협동 로봇 전시</h1>
+                <div class="project-info">
+                    <span>Funzin · ADEX 2025</span>
+                    <span>2025.07 - 2025.10</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">ROS2</span>
+                    <span class="tech-tag">Gazebo</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Multi-Robot Control</span>
+                    <span class="tech-tag">OpenCV</span>
+                </div>
+            </div>
+
+            <div class="achievement-box">
+                <h3>🎯 주요 성과</h3>
+                <p><strong>이동 로봇 목적지 도착 알고리즘 개선으로 작업 수행 정확도 2배 상승</strong></p>
+                <p><strong>ADEX 2025 전시회에서 시연 성공</strong></p>
+            </div>
+
+            <section>
+                <h2>프로젝트 개요</h2>
+                <p>
+                    이동 로봇과 로봇팔을 협동시켜 특정 작업을 수행하는 이기종 로봇 협동 시스템을 개발했습니다.
+                    이 프로젝트는 ADEX 2025 (국제방위산업전시회)에서 전시되었습니다.
+                </p>
+                <p>
+                    이동 로봇(Limo)이 목적지까지 이동한 후, 로봇팔(Mycobot)이 물체를 운반하는 시나리오를 구현했습니다.
+                    두 로봇이 서로 다른 제어 시스템을 사용하므로, 이를 통합하여 협동 작업을 수행할 수 있도록 시스템을 구축했습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>주요 개발 내용</h2>
+                
+                <div class="highlight-box">
+                    <h3>1. 다중, 이기종 로봇 제어</h3>
+                    <ul>
+                        <li><strong>Gazebo 시뮬레이션:</strong> Gazebo를 활용한 다중 로봇 동시 제어 환경 구축</li>
+                        <li><strong>Namespace 분리:</strong> 동일 Domain ID에서 통신하는 다중 로봇을 동시 제어하기 위한 Namespace 분리 및 동시 제어 노드 개발</li>
+                        <li><strong>Domain Bridge:</strong> 동일 Domain ID에서 통신 과다로 인한 제어 불안정 문제 해결을 위해 각 로봇을 서로 다른 Domain ID로 분리하고 각 Domain을 연결하는 Bridge 생성</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>2. 이동 로봇 경로 생성 알고리즘</h3>
+                    <ul>
+                        <li><strong>Waypoint 기반 경로 생성:</strong> 이동 로봇이 단순 최단 경로로 이동하는 것이 아닌, 정해진 길로만 다니도록 제어</li>
+                        <li><strong>L자/□자 경로:</strong> 목적지까지의 경로 중간에 Waypoint를 추가해 L자 혹은 □자로 경로가 생성되도록 Navigation 노드 개발</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>3. 주차 알고리즘</h3>
+                    <ul>
+                        <li><strong>근접 주차:</strong> 이동 로봇이 로봇팔 도달 범위까지 근접할 수 있도록 목적지 도달 이후 주차 알고리즘 생성</li>
+                        <li><strong>후면 주차:</strong> 어려운 목적지의 경우 후면주차 방식으로 쉬운 목적지 도착 후 주차 알고리즘을 추가해 목적지 도달 확률 2배 이상 증가</li>
+                        <li><strong>충돌 방지:</strong> 이동 로봇 특성 상 목적지가 벽과 가까운 경우 벽과 충돌하지 않기 위한 알고리즘 동작으로 경로 도달 과정 최적화</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>4. Job Sequence 노드 구현</h3>
+                    <ul>
+                        <li><strong>비동기 작업 스케줄러:</strong> 각 로봇이 발행하는 토픽, 서비스 정보를 바탕으로 기능 별 함수 구현, 동시 제어를 위해 비동기 방식으로 Queue 작업 Scheduler 생성</li>
+                        <li><strong>오류 처리 및 복구:</strong> 오류가 발생하거나 로봇에 문제가 생길 경우를 대비해 각 단계 별 검증 및 초기화 함수 구현</li>
+                        <li><strong>OpenCV 기반 검증:</strong> OpenCV를 활용해 이동 로봇 정상 도착 여부 및 로봇팔 운반 성공 여부 판단 알고리즘 구현</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>기술적 도전과 해결</h2>
+                <p>
+                    <strong>문제 1:</strong> 동일 Domain ID에서 다중 로봇이 통신할 때 통신 과다로 인한 제어 불안정
+                    <br><strong>해결:</strong> 각 로봇을 서로 다른 Domain ID로 분리하고 Domain Bridge를 생성하여 통신 안정성 확보
+                </p>
+                <p>
+                    <strong>문제 2:</strong> 이동 로봇이 목적지에 정확히 도달하지 못하거나 로봇팔 도달 범위 밖에 위치
+                    <br><strong>해결:</strong> 주차 알고리즘과 후면 주차 방식을 도입하여 목적지 도달 확률 2배 이상 향상
+                </p>
+                <p>
+                    <strong>문제 3:</strong> 두 로봇의 작업 동기화 및 오류 발생 시 복구
+                    <br><strong>해결:</strong> Queue 기반 비동기 작업 스케줄러와 각 단계별 검증 로직 구현
+                </p>
+            </section>
+
+            <section>
+                <h2>프로젝트 성과</h2>
+                <ul>
+                    <li>이동 로봇 목적지 도착 알고리즘 및 경로 생성 알고리즘 개선으로 작업 수행 정확도 2배 상승</li>
+                    <li>Queue 기반의 Job Scheduler 노드 구성, 작업 실패 시 복구 알고리즘 구축</li>
+                    <li>ROS Topic, Service, Action을 활용한 로봇 제어 시스템 구축</li>
+                    <li>ADEX 2025 전시회에서 성공적인 시연</li>
+                    <li>ROS 무경험자들 간 프로젝트 진행을 위한 팀 스터디 리드</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>배운 점</h2>
+                <ul>
+                    <li>ROS2의 Topic, Service, Action 메커니즘 이해 및 활용</li>
+                    <li>다중 로봇 제어를 위한 Namespace 분리 및 Domain Bridge 구축</li>
+                    <li>Gazebo 시뮬레이션 환경 구축 및 활용</li>
+                    <li>비동기 작업 스케줄링 및 오류 처리 방법론</li>
+                    <li>OpenCV를 활용한 로봇 상태 검증 알고리즘 개발</li>
+                    <li>실제 전시 환경에서의 시스템 안정성 확보 경험</li>
+                </ul>
+            </section>
+
+            <div class="back-link">
+                <a href="../index.html">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

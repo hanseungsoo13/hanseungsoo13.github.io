@@ -77,6 +77,38 @@
             border-left: 4px solid #ffc107; 
             margin: 1rem 0;
         }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background: #e8f4f8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .achievement-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-left: 4px solid #4caf50;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -89,54 +121,123 @@
         <div class="container">
             <div class="project-meta">
                 <span class="project-category">Vision Language Model</span>
-                <h1>SegCIR: Text Guided Zero Shot Composed Image Retrieval</h1>
+                <h1>SegCIR: Segment-Aware Visual Encoding for Zero-Shot Composed Image Retrieval</h1>
                 <div class="project-info">
-                    <span>X:AI Conference</span>
+                    <span>X:AI Conference · 공동 1저자</span>
                     <span>2024.07 - 2024.11</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">SAM (Segment Anything Model)</span>
+                    <span class="tech-tag">Q-Former</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Image Retrieval</span>
                 </div>
             </div>
 
+            <div class="achievement-box">
+                <h3>🏆 주요 성과</h3>
+                <p><strong>COCO Segmentation Benchmark에서 33.2%로 비공식 1위 달성</strong> (Papers with code 기준)</p>
+            </div>
+
             <section>
-                <h2>Overview</h2>
+                <h2>프로젝트 개요</h2>
                 <p>
                     텍스트 가이드 기반의 Zero-Shot Composed Image Retrieval 연구입니다. 
                     입력 이미지와 텍스트 쿼리를 결합하여 원하는 특성을 가진 이미지를 검색하는 시스템을 개발했습니다.
-                    현재 논문 심사 중입니다 (공동 1저자).
+                    X:AI 컨퍼런스에서 발표되었으며, 현재 논문 심사 중입니다 (공동 1저자).
                 </p>
-                <div class="highlight">
-                    <strong>🏆 COCO Segmentation Benchmark에서 33.2%로 비공식 1위 달성</strong> (Papers with code 기준)
-                </div>
+                <p>
+                    Composed Image Retrieval(CIR)은 참조 이미지와 텍스트 쿼리를 결합하여 
+                    원하는 특성을 가진 이미지를 검색하는 작업입니다. 예를 들어, "이 이미지에서 
+                    배경을 바다로 바꿔줘"와 같은 복합적인 쿼리를 처리할 수 있습니다.
+                </p>
             </section>
 
             <section>
-                <h2>Key Contributions</h2>
+                <h2>연구 배경 및 동기</h2>
+                <p>
+                    기존의 Composed Image Retrieval 방법들은 이미지 전체를 활용하여 쿼리와 매칭하는 방식을 사용했습니다.
+                    그러나 이미지에는 검색과 무관한 배경이나 객체들이 포함되어 있어 노이즈로 작용할 수 있습니다.
+                    특히 텍스트 쿼리가 특정 객체나 영역에 집중하는 경우, 전체 이미지를 사용하는 것은 비효율적입니다.
+                </p>
+                <p>
+                    본 연구는 이미지의 핵심 영역에 집중하여 검색 성능을 향상시키는 방법을 제안했습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>주요 기여사항</h2>
                 <ul>
-                    <li>입력 이미지에 Segmentation Module(SAM)을 추가해 모델이 이미지 속 필요한 부분만 활용할 수 있도록 전처리</li>
-                    <li>기존 Projection Module을 Q-Former를 응용한 형태로 변환하여 Text-Image alignment 향상</li>
-                    <li>Segment-Aware Visual Encoding으로 이미지의 핵심 영역에 집중하는 방법론 제안</li>
+                    <li><strong>Segment-Aware Visual Encoding:</strong> SAM(Segment Anything Model)을 활용하여 이미지를 세그먼트로 분할하고, 텍스트 쿼리와 관련된 세그먼트만을 선택적으로 활용</li>
+                    <li><strong>Q-Former 기반 Projection Module:</strong> BLIP-2의 Q-Former 구조를 응용하여 Text-Image alignment 향상</li>
+                    <li><strong>Zero-Shot 성능:</strong> 추가 학습 없이 기존 모델을 활용한 Zero-Shot Composed Image Retrieval 달성</li>
+                    <li><strong>SOTA 성능:</strong> COCO Segmentation Benchmark에서 33.2%로 비공식 1위 달성</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Technical Approach</h2>
-                <p>
-                    기존의 Composed Image Retrieval 방법들은 이미지 전체를 활용하여 쿼리와 매칭하는 방식을 사용했습니다.
-                    그러나 이미지에는 검색과 무관한 배경이나 객체들이 포함되어 있어 노이즈로 작용할 수 있습니다.
-                </p>
-                <p>
-                    본 연구에서는 SAM(Segment Anything Model)을 활용하여 이미지를 세그먼트로 분할하고,
-                    텍스트 쿼리와 관련된 세그먼트만을 선택적으로 활용하는 방법을 제안했습니다.
-                    또한 BLIP-2의 Q-Former 구조를 응용하여 텍스트와 이미지 간의 정렬을 개선했습니다.
-                </p>
+                <h2>기술적 방법론</h2>
+                <div class="highlight-box">
+                    <h3>1. Segmentation Module (SAM)</h3>
+                    <p>
+                        Segment Anything Model(SAM)을 사용하여 입력 이미지를 의미 있는 세그먼트로 분할합니다.
+                        각 세그먼트는 이미지의 특정 객체나 영역을 나타냅니다.
+                    </p>
+                </div>
+                <div class="highlight-box">
+                    <h3>2. Segment Selection</h3>
+                    <p>
+                        텍스트 쿼리와 각 세그먼트 간의 유사도를 계산하여 관련성 높은 세그먼트만을 선택합니다.
+                        이를 통해 검색과 무관한 배경이나 객체를 제거하고 핵심 영역에 집중할 수 있습니다.
+                    </p>
+                </div>
+                <div class="highlight-box">
+                    <h3>3. Q-Former 기반 Projection</h3>
+                    <p>
+                        BLIP-2의 Q-Former 구조를 응용하여 텍스트와 이미지 세그먼트 간의 정렬을 개선합니다.
+                        Q-Former는 학습 가능한 쿼리 벡터를 사용하여 텍스트와 이미지 간의 교차 어텐션을 수행합니다.
+                    </p>
+                </div>
+                <div class="highlight-box">
+                    <h3>4. Segment-Aware Visual Encoding</h3>
+                    <p>
+                        선택된 세그먼트들을 통합하여 최종 이미지 표현을 생성합니다.
+                        이 과정에서 각 세그먼트의 중요도를 고려하여 가중치를 부여합니다.
+                    </p>
+                </div>
             </section>
 
             <section>
-                <h2>Results</h2>
+                <h2>실험 및 결과</h2>
                 <p>
                     COCO Segmentation Benchmark에서 33.2%의 Recall@K를 달성하여 
                     Papers with Code 기준 비공식 1위를 기록했습니다.
                     제안한 Segment-Aware 방법론이 기존 방법들 대비 유의미한 성능 향상을 보였습니다.
                 </p>
+                <p>
+                    특히 텍스트 쿼리가 특정 객체나 영역에 집중하는 경우, 
+                    전체 이미지를 사용하는 기존 방법 대비 큰 성능 향상을 보였습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>학술적 성과</h2>
+                <p>
+                    본 연구는 X:AI 컨퍼런스에서 발표되었으며, 현재 논문 심사 중입니다 (공동 1저자).
+                    Composed Image Retrieval 분야에 Segmentation을 도입한 최초의 연구 중 하나로서
+                    학술적 가치를 인정받고 있습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>배운 점</h2>
+                <ul>
+                    <li>Composed Image Retrieval의 이론과 실무 적용 방법</li>
+                    <li>Segment Anything Model(SAM) 활용 경험</li>
+                    <li>Q-Former 구조의 이해와 응용</li>
+                    <li>Vision-Language 모델의 Text-Image Alignment 기법</li>
+                    <li>학술 논문 작성 및 컨퍼런스 발표 경험</li>
+                </ul>
             </section>
 
             <div class="back-link">
