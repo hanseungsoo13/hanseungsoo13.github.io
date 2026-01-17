@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SegCIR | Han Seung Soo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b6b6b;
+            --accent: #2563eb;
+            --border-color: #e5e5e5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+        header a { color: var(--text-secondary); font-size: 0.9rem; }
+        main { padding: 3rem 0; }
+        .project-meta {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .project-category {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .project-info {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .project-info span { margin-right: 1.5rem; }
+        section { margin-bottom: 2.5rem; }
+        h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+        ul { margin-left: 1.5rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+        .back-link { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); }
+        .highlight { 
+            background: #fff3cd; 
+            padding: 1rem; 
+            border-left: 4px solid #ffc107; 
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">← Back to Home</a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="project-meta">
+                <span class="project-category">Vision Language Model</span>
+                <h1>SegCIR: Text Guided Zero Shot Composed Image Retrieval</h1>
+                <div class="project-info">
+                    <span>X:AI Conference</span>
+                    <span>2024.07 - 2024.11</span>
+                </div>
+            </div>
+
+            <section>
+                <h2>Overview</h2>
+                <p>
+                    텍스트 가이드 기반의 Zero-Shot Composed Image Retrieval 연구입니다. 
+                    입력 이미지와 텍스트 쿼리를 결합하여 원하는 특성을 가진 이미지를 검색하는 시스템을 개발했습니다.
+                    현재 논문 심사 중입니다 (공동 1저자).
+                </p>
+                <div class="highlight">
+                    <strong>🏆 COCO Segmentation Benchmark에서 33.2%로 비공식 1위 달성</strong> (Papers with code 기준)
+                </div>
+            </section>
+
+            <section>
+                <h2>Key Contributions</h2>
+                <ul>
+                    <li>입력 이미지에 Segmentation Module(SAM)을 추가해 모델이 이미지 속 필요한 부분만 활용할 수 있도록 전처리</li>
+                    <li>기존 Projection Module을 Q-Former를 응용한 형태로 변환하여 Text-Image alignment 향상</li>
+                    <li>Segment-Aware Visual Encoding으로 이미지의 핵심 영역에 집중하는 방법론 제안</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Technical Approach</h2>
+                <p>
+                    기존의 Composed Image Retrieval 방법들은 이미지 전체를 활용하여 쿼리와 매칭하는 방식을 사용했습니다.
+                    그러나 이미지에는 검색과 무관한 배경이나 객체들이 포함되어 있어 노이즈로 작용할 수 있습니다.
+                </p>
+                <p>
+                    본 연구에서는 SAM(Segment Anything Model)을 활용하여 이미지를 세그먼트로 분할하고,
+                    텍스트 쿼리와 관련된 세그먼트만을 선택적으로 활용하는 방법을 제안했습니다.
+                    또한 BLIP-2의 Q-Former 구조를 응용하여 텍스트와 이미지 간의 정렬을 개선했습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>Results</h2>
+                <p>
+                    COCO Segmentation Benchmark에서 33.2%의 Recall@K를 달성하여 
+                    Papers with Code 기준 비공식 1위를 기록했습니다.
+                    제안한 Segment-Aware 방법론이 기존 방법들 대비 유의미한 성능 향상을 보였습니다.
+                </p>
+            </section>
+
+            <div class="back-link">
+                <a href="../index.html">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

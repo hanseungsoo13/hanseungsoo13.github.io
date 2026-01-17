@@ -6,20 +6,18 @@
     <title>Han Seung Soo | AI Researcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a25;
-            --accent-primary: #6366f1;
-            --accent-secondary: #8b5cf6;
-            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border-color: rgba(99, 102, 241, 0.2);
-            --shadow-glow: 0 0 60px rgba(99, 102, 241, 0.15);
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #6b6b6b;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --border-color: #e5e5e5;
+            --section-gap: 3rem;
         }
 
         * {
@@ -28,1327 +26,696 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
-            overflow-x: hidden;
+            font-size: 16px;
         }
 
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
+        a {
+            color: var(--accent);
+            text-decoration: none;
         }
 
-        .grid-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: -1;
+        a:hover {
+            text-decoration: underline;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .header-info h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .header-info .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .header-info .bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+
+        .contact-links svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Navigation */
         nav {
-            position: fixed;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem 0;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0 4rem;
+        }
+
+        section {
+            margin-bottom: var(--section-gap);
+        }
+
+        section h2 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--text-primary);
+        }
+
+        /* Research Interests */
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .interest-tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* List Items */
+        .item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-color);
         }
 
-        nav .container {
+        .item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .item-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .item-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .item-details {
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .item-details li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Papers */
+        .paper-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .paper-status {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .paper-title {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .paper-venue {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .project-category {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .project-org {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 0.75rem 2rem;
+        }
+
+        .skill-category {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .skill-items {
+            color: var(--text-muted);
+        }
+
+        /* Simple List */
+        .simple-list {
+            list-style: none;
+        }
+
+        .simple-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .simple-list li:last-child {
+            border-bottom: none;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
+        .list-title {
             color: var(--text-primary);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .profile-image-wrapper {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-
-        .profile-image {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid transparent;
-            background: 
-                linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-                var(--accent-gradient) border-box;
-            box-shadow: var(--shadow-glow);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .profile-image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            opacity: 0.2;
-            filter: blur(30px);
-            z-index: -1;
-        }
-
-        .profile-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile-title {
-            color: var(--accent-primary);
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--accent-primary);
-            color: white;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        .social-link svg {
-            width: 22px;
-            height: 22px;
-        }
-
-        .intro-section h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .intro-section h1 span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .intro-section p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .research-interests {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .tag {
-            padding: 0.5rem 1rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid var(--border-color);
-            border-radius: 30px;
-            font-size: 0.85rem;
-            color: var(--accent-primary);
-            font-weight: 500;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section-divider {
-            width: 60px;
-            height: 4px;
-            background: var(--accent-gradient);
-            border-radius: 2px;
-            margin: 1rem auto;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding: 1.5rem 2rem;
-            background: var(--bg-card);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 2rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-        }
-
-        .timeline-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-org {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .timeline-desc {
+        .list-subtitle {
             color: var(--text-muted);
             font-size: 0.9rem;
-            margin-top: 0.5rem;
         }
 
-        .papers-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .paper-card {
-            padding: 2rem;
-            background: var(--bg-card);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .paper-card:hover {
-            border-color: var(--accent-primary);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .paper-status {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: var(--accent-gradient);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .paper-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .paper-venue {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
-        }
-
-        .project-header {
-            padding: 1.5rem 1.5rem 1rem;
-        }
-
-        .project-category {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: rgba(99, 102, 241, 0.15);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent-primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .project-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-org {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .project-content {
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .project-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .project-expand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent-primary);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 1rem;
-        }
-
-        .project-expand svg {
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-expand svg {
-            transform: translateX(5px);
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            border-color: var(--accent-primary);
-            transform: translateY(-4px);
-        }
-
-        .skill-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 1rem;
-            border-radius: 12px;
-            background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .skill-icon svg {
-            width: 26px;
-            height: 26px;
-            color: white;
-        }
-
-        .skill-name {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-items {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .awards-list {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .award-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .award-card:hover {
-            border-color: var(--accent-primary);
-        }
-
-        .award-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .award-icon svg {
-            width: 26px;
-            height: 26px;
-            color: white;
-        }
-
-        .award-content {
-            flex: 1;
-        }
-
-        .award-title {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .award-desc {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .award-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
-
-        .contact-section {
-            background: var(--bg-secondary);
-            border-radius: 24px;
-            padding: 4rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-
-        .contact-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-section p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            background: var(--accent-primary);
-            border-color: var(--accent-primary);
-            transform: translateY(-4px);
-        }
-
-        .contact-link svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            padding: 2rem;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal {
-            background: var(--bg-card);
-            border-radius: 24px;
-            border: 1px solid var(--border-color);
-            max-width: 700px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active .modal {
-            transform: scale(1) translateY(0);
-        }
-
-        .modal-header {
-            padding: 2rem 2rem 0;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: var(--accent-primary);
-            color: white;
-        }
-
-        .modal-category {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: var(--accent-gradient);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-org {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-date {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-primary);
-            font-size: 0.9rem;
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .modal-body h4 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .modal-body ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .modal-body li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .modal-body li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.6rem;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent-primary);
-        }
-
+        /* Footer */
         footer {
+            border-top: 1px solid var(--border-color);
             padding: 2rem 0;
             text-align: center;
             color: var(--text-muted);
             font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
         }
 
-        @media (max-width: 900px) {
-            .hero-content {
-                grid-template-columns: 1fr;
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
                 text-align: center;
             }
 
-            .profile-section {
-                order: 1;
-            }
-
-            .intro-section {
-                order: 2;
-            }
-
-            .intro-section h1 {
-                font-size: 2.2rem;
-            }
-
-            .research-interests {
+            .contact-links {
                 justify-content: center;
             }
 
-            .nav-links {
-                display: none;
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
             }
-        }
 
-        @media (max-width: 600px) {
-            .projects-grid {
+            .item-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .skills-grid {
                 grid-template-columns: 1fr;
+                gap: 0.5rem;
             }
 
-            .contact-section {
-                padding: 2rem;
-            }
-
-            .modal {
-                margin: 1rem;
+            .skill-category {
+                margin-top: 0.5rem;
             }
         }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <div class="grid-pattern"></div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://avatars.githubusercontent.com/u/75753717?v=4" alt="Han Seung Soo" class="profile-image">
+                <div class="header-info">
+                    <h1>한승수 (Seung Soo Han)</h1>
+                    <p class="subtitle">AI Researcher at Funzin</p>
+                    <p class="bio">
+                        컴퓨터 비전과 Vision Language Model 분야를 연구하는 AI 연구원입니다.
+                        다양한 AI 응용 연구와 논문 게재 경험을 보유하고 있습니다.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:hanseungsoo63@gmail.com">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            hanseungsoo63@gmail.com
+                        </a>
+                        <a href="https://github.com/hanseungsoo13" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/seungsoo-han-6b1859231/" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://hanseungsoo13.tistory.com" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                            Blog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <nav>
         <div class="container">
-            <div class="logo">HSS</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
+            <ul>
+                <li><a href="#interests">Research</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#papers">Papers</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#publications">Publications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#awards">Awards</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero" id="about">
+    <main>
         <div class="container">
-            <div class="hero-content">
-                <div class="profile-section fade-in">
-                    <div class="profile-image-wrapper">
-                        <img src="https://avatars.githubusercontent.com/u/75753717?v=4" alt="Han Seung Soo" class="profile-image">
-                    </div>
-                    <h2 class="profile-name">한승수</h2>
-                    <p class="profile-title">AI Researcher @ Funzin</p>
-                    <div class="social-links">
-                        <a href="https://github.com/hanseungsoo13" target="_blank" class="social-link" title="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                        <a href="https://hanseungsoo13.tistory.com" target="_blank" class="social-link" title="Blog">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/seungsoo-han-6b1859231/" target="_blank" class="social-link" title="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="mailto:hanseungsoo63@gmail.com" class="social-link" title="Email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </a>
-                    </div>
+            <!-- Research Interests -->
+            <section id="interests">
+                <h2>Research Interests</h2>
+                <div class="interests-list">
+                    <span class="interest-tag">3D Image Processing</span>
+                    <span class="interest-tag">Object Tracking</span>
+                    <span class="interest-tag">Vision Language Model</span>
+                    <span class="interest-tag">Image Reconstruction</span>
+                    <span class="interest-tag">Super Resolution</span>
+                    <span class="interest-tag">Object Detection</span>
                 </div>
-                <div class="intro-section fade-in delay-2">
-                    <h1>AI로 세상을 <span>더 똑똑하게</span> 만들어갑니다</h1>
-                    <p>
-                        컴퓨터 비전과 Vision Language Model 분야에서 연구하고 있는 AI 연구원입니다. 
-                        3D Image Processing, Object Tracking, Image Reconstruction 등 
-                        다양한 AI 응용 분야에 관심을 가지고 연구를 수행하고 있습니다.
-                    </p>
-                    <div class="research-interests">
-                        <span class="tag">3D Image Processing</span>
-                        <span class="tag">Object Tracking</span>
-                        <span class="tag">Vision Language Model</span>
-                        <span class="tag">Image Reconstruction</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="education">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Education & Career</h2>
-                <div class="section-divider"></div>
-                <p>학력과 경력 사항입니다</p>
-            </div>
-            <div class="timeline fade-in delay-2">
-                <div class="timeline-item">
-                    <div class="timeline-date">2025.03 ~ 현재</div>
-                    <div class="timeline-title">AI 연구원</div>
-                    <div class="timeline-org">㈜펀진 지능화연구실 AI Architecture팀</div>
+            <!-- Education -->
+            <section id="education">
+                <h2>Education</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">국민대학교 빅데이터경영통계전공</span>
+                        <span class="item-date">2018.03 - 2022.02</span>
+                    </div>
+                    <div class="item-subtitle">정보보안암호수학과 부전공</div>
+                    <div class="item-desc">수석 졸업 (평점: 4.26/4.5, 전공평점: 4.41/4.5)</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2024.08 ~ 2025.02</div>
-                    <div class="timeline-title">7th Naver Connect. BoostCamp AI Tech</div>
-                    <div class="timeline-org">Computer Vision Domain</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2018.03 ~ 2022.02</div>
-                    <div class="timeline-title">국민대학교 빅데이터경영통계전공</div>
-                    <div class="timeline-org">정보보안암호수학과 부전공</div>
-                    <div class="timeline-desc">수석 졸업 (평점: 4.26/4.5, 전공평점: 4.41/4.5)</div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="papers" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header fade-in">
+            <!-- Career -->
+            <section id="career">
+                <h2>Career</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">AI 연구원</span>
+                        <span class="item-date">2025.03 - Present</span>
+                    </div>
+                    <div class="item-subtitle">㈜펀진 지능화연구실 AI Architecture팀</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <span class="item-title">7th Naver Connect. BoostCamp AI Tech</span>
+                        <span class="item-date">2024.08 - 2025.02</span>
+                    </div>
+                    <div class="item-subtitle">Computer Vision Domain</div>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section id="publications">
                 <h2>Publications</h2>
-                <div class="section-divider"></div>
-                <p>학술 논문 및 연구 성과입니다</p>
-            </div>
-            <div class="papers-grid fade-in delay-2">
-                <div class="paper-card">
+                <div class="paper-item">
                     <span class="paper-status">Under Review</span>
-                    <div class="paper-title">SegCIR - Segment-Aware Visual Encoding for Zero-Shot Composed Image Retrieval</div>
+                    <span class="paper-title">SegCIR - Segment-Aware Visual Encoding for Zero-Shot Composed Image Retrieval</span>
                     <div class="paper-venue">공동 1저자</div>
                 </div>
-                <div class="paper-card">
-                    <span class="paper-status">ICTC 2025 - Oral</span>
-                    <div class="paper-title">Enhancing Lightweight IRSR Models via Knowledge Distillation with Structural and Spectral Losses</div>
-                    <div class="paper-venue">1저자</div>
+                <div class="paper-item">
+                    <span class="paper-status">ICTC 2025</span>
+                    <span class="paper-title">Enhancing Lightweight IRSR Models via Knowledge Distillation with Structural and Spectral Losses</span>
+                    <div class="paper-venue">1저자 · Oral Session</div>
                 </div>
-                <div class="paper-card">
+                <div class="paper-item">
                     <span class="paper-status">KCI</span>
-                    <div class="paper-title">시각언어모델 기반 맥락 추출과 한국어 대규모 언어모델 파인튜닝을 통한 여행 블로그 콘텐츠 자동 생성</div>
-                    <div class="paper-venue">한국컴퓨터정보학회 논문지 · 2저자</div>
+                    <span class="paper-title">시각언어모델 기반 맥락 추출과 한국어 대규모 언어모델 파인튜닝을 통한 여행 블로그 콘텐츠 자동 생성</span>
+                    <div class="paper-venue">2저자 · 한국컴퓨터정보학회 논문지</div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="projects">
-        <div class="container">
-            <div class="section-header fade-in">
+            <!-- Projects -->
+            <section id="projects">
                 <h2>Projects</h2>
-                <div class="section-divider"></div>
-                <p>주요 프로젝트 경험입니다. 클릭하면 자세한 내용을 확인할 수 있습니다.</p>
-            </div>
-            <div class="projects-grid fade-in delay-2">
-                <div class="project-card" onclick="openModal('project1')">
-                    <div class="project-header">
-                        <span class="project-category">Robotics</span>
-                        <h3 class="project-title">이기종 협동 로봇 전시</h3>
-                        <p class="project-org">Funzin · ADEX 2025</p>
+                
+                <div class="project-item">
+                    <span class="project-category">Robotics</span>
+                    <div class="item-header">
+                        <span class="project-title">이기종 협동 로봇 전시</span>
+                        <span class="item-date">2025.07 - 2025.10</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-desc">로봇팔, 이동 로봇 협력 작업 수행 전시. Queue 기반의 Job Scheduler 노드 구성 및 복구 알고리즘 구축</p>
-                        <span class="project-date">2025.07 ~ 2025.10</span>
-                        <div class="project-expand">
-                            자세히 보기
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
+                    <div class="project-org">Funzin · ADEX 2025</div>
+                    <ul class="item-details">
+                        <li>로봇팔, 이동 로봇 협력 작업 수행 전시 (ADEX 2025)</li>
+                        <li>이동 로봇 목적지 도착 알고리즘 및 경로 생성 알고리즘 개선으로 작업 수행 정확도 2배 상승</li>
+                        <li>Queue 기반의 Job Scheduler 노드 구성, 작업 실패 시 복구 알고리즘 구축</li>
+                        <li>ROS Topic, Service, Action을 활용한 로봇 제어</li>
+                    </ul>
                 </div>
 
-                <div class="project-card" onclick="openModal('project2')">
-                    <div class="project-header">
-                        <span class="project-category">Computer Vision</span>
-                        <h3 class="project-title">IR Image Super Resolution with KD</h3>
-                        <p class="project-org">Funzin · ICTC 2025 Oral</p>
+                <div class="project-item">
+                    <span class="project-category">Computer Vision</span>
+                    <div class="item-header">
+                        <span class="project-title">Enhancing Lightweight IRSR Models via Knowledge Distillation</span>
+                        <span class="item-date">2025.04 - 2025.07</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-desc">IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</p>
-                        <span class="project-date">2025.04 ~ 2025.07</span>
-                        <div class="project-expand">
-                            자세히 보기
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
+                    <div class="project-org">Funzin · ICTC 2025 Oral Session</div>
+                    <ul class="item-details">
+                        <li>IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</li>
+                        <li>IR 이미지에 특화된 Sobel Transform, Spectral Loss를 활용한 Loss Function 설계</li>
+                        <li>일반적인 학습 프레임워크 대비 4%의 성능 향상 달성</li>
+                    </ul>
+                    <a href="projects/irsr-kd.html" class="project-link">자세히 보기 →</a>
                 </div>
 
-                <div class="project-card" onclick="openModal('project3')">
-                    <div class="project-header">
-                        <span class="project-category">Vision Language Model</span>
-                        <h3 class="project-title">트래블로그: 여행 블로그 생성기</h3>
-                        <p class="project-org">Naver Boostcamp · KCI 논문</p>
+                <div class="project-item">
+                    <span class="project-category">Vision Language Model</span>
+                    <div class="item-header">
+                        <span class="project-title">트래블로그: 사진 기반 여행 블로그 생성기</span>
+                        <span class="item-date">2025.01 - 2025.02</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-desc">VLM(Qwen-VL)과 LLM(하이퍼클로바) API를 활용해 LLM의 시각적 한계 극복 및 문장 생성 능력 극대화</p>
-                        <span class="project-date">2025.01 ~ 2025.02</span>
-                        <div class="project-expand">
-                            자세히 보기
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
+                    <div class="project-org">Naver Boostcamp · KCI 논문</div>
+                    <ul class="item-details">
+                        <li>VLM(Qwen-VL)과 LLM(하이퍼클로바) API를 활용해 LLM의 시각적 한계 극복</li>
+                        <li>프롬프트 엔지니어링과 파인튜닝으로 기존 LLM 대비 10% 이상 향상된 블로그 생성</li>
+                        <li>멀티 프로세싱을 통한 추론 시간 단축 및 효율적인 GPU 활용</li>
+                    </ul>
+                    <a href="projects/travelogue.html" class="project-link">자세히 보기 →</a>
                 </div>
 
-                <div class="project-card" onclick="openModal('project4')">
-                    <div class="project-header">
-                        <span class="project-category">Vision Language Model</span>
-                        <h3 class="project-title">Zero Shot Composed Image Retrieval</h3>
-                        <p class="project-org">X:AI Conference</p>
+                <div class="project-item">
+                    <span class="project-category">Vision Language Model</span>
+                    <div class="item-header">
+                        <span class="project-title">Text Guided Zero Shot Composed Image Retrieval</span>
+                        <span class="item-date">2024.07 - 2024.11</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-desc">Segmentation Module(SAM)을 추가해 이미지 속 필요한 부분만 활용. COCO 벤치마크 비공식 1위 달성</p>
-                        <span class="project-date">2024.07 ~ 2024.11</span>
-                        <div class="project-expand">
-                            자세히 보기
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
+                    <div class="project-org">X:AI Conference</div>
+                    <ul class="item-details">
+                        <li>Segmentation Module(SAM)을 추가해 이미지 속 필요한 부분만 활용하도록 전처리</li>
+                        <li>Q-Former를 응용한 Projection Module로 Text-Image alignment 향상</li>
+                        <li>COCO Segmentation Benchmark 33.2%로 비공식 1위 달성 (Papers with code 기준)</li>
+                    </ul>
+                    <a href="projects/segcir.html" class="project-link">자세히 보기 →</a>
                 </div>
 
-                <div class="project-card" onclick="openModal('project5')">
-                    <div class="project-header">
-                        <span class="project-category">Computer Vision</span>
-                        <h3 class="project-title">재활용 쓰레기 객체 검출</h3>
-                        <p class="project-org">Naver BoostCamp</p>
+                <div class="project-item">
+                    <span class="project-category">Computer Vision</span>
+                    <div class="item-header">
+                        <span class="project-title">재활용 쓰레기 객체 검출</span>
+                        <span class="item-date">2024.09 - 2024.10</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-desc">MMDetection Library를 활용한 Object Detection 모델 개발. Copy-Paste와 Mosaic 결합 기법 개발</p>
-                        <span class="project-date">2024.09 ~ 2024.10</span>
-                        <div class="project-expand">
-                            자세히 보기
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
+                    <div class="project-org">Naver BoostCamp</div>
+                    <ul class="item-details">
+                        <li>MMDetection Library를 활용한 Object Detection 모델 개발 (DDQ, DINO)</li>
+                        <li>Data Augmentation, Pseudo Labelling, TTA를 활용한 30% 검출 능력 향상</li>
+                        <li>Copy-Paste 기법과 Mosaic 기법을 결합한 Data Augmentation 기법 개발</li>
+                    </ul>
                 </div>
 
-                <div class="project-card" onclick="openModal('project6')">
-                    <div class="project-header">
-                        <span class="project-category">Various</span>
-                        <h3 class="project-title">Other Related Projects</h3>
-                        <p class="project-org">Naver Boostcamp & Kookmin Univ.</p>
+                <div class="project-item">
+                    <span class="project-category">Other</span>
+                    <div class="item-header">
+                        <span class="project-title">Other Related Projects</span>
+                        <span class="item-date">2021 - 2024</span>
                     </div>
-                    <div class="project-content">
-                        <p class="project-desc">Hand Bone Segmentation, OCR, Image Classification, DeepFake Detection, Counseling Chatbot 등</p>
-                        <span class="project-date">2021 ~ 2024</span>
-                        <div class="project-expand">
-                            자세히 보기
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
+                    <ul class="item-details">
+                        <li>Hand Bone Semantic Segmentation (2024.11) - Naver Boostcamp</li>
+                        <li>Receipt Text OCR (2024.10) - Naver Boostcamp</li>
+                        <li>Sketch Image Classification (2024.09) - Naver Boostcamp</li>
+                        <li>Improving DeepFake Detection with Effectiveness (2021.10) - Kookmin Univ.</li>
+                        <li>Develop Counseling Chatbot for Depression Patients (2021.05) - Kookmin Univ.</li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="skills" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="section-header fade-in">
+            <!-- Skills -->
+            <section id="skills">
                 <h2>Skills</h2>
-                <div class="section-divider"></div>
-                <p>기술 스택 및 보유 역량입니다</p>
-            </div>
-            <div class="skills-container fade-in delay-2">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    </div>
-                    <h3 class="skill-name">Languages</h3>
-                    <p class="skill-items">Python, R, SQL</p>
+                <div class="skills-grid">
+                    <span class="skill-category">Programming</span>
+                    <span class="skill-items">Python, R, SQL</span>
+                    
+                    <span class="skill-category">Deep Learning</span>
+                    <span class="skill-items">PyTorch, TensorFlow/Keras</span>
+                    
+                    <span class="skill-category">Machine Learning</span>
+                    <span class="skill-items">Scikit-Learn</span>
+                    
+                    <span class="skill-category">Robotics</span>
+                    <span class="skill-items">ROS2</span>
+                    
+                    <span class="skill-category">Tools & Environment</span>
+                    <span class="skill-items">GitHub, Docker, Wandb</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3 class="skill-name">Deep Learning</h3>
-                    <p class="skill-items">PyTorch, TensorFlow/Keras</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
-                    <h3 class="skill-name">Machine Learning</h3>
-                    <p class="skill-items">Scikit-Learn</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-                    </div>
-                    <h3 class="skill-name">Robotics</h3>
-                    <p class="skill-items">ROS2</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h3 class="skill-name">Environment</h3>
-                    <p class="skill-items">GitHub, Docker, Wandb</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="awards">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Awards & Certificates</h2>
-                <div class="section-divider"></div>
-                <p>수상 내역과 자격증입니다</p>
-            </div>
-            <div class="awards-list fade-in delay-2">
-                <div class="award-card">
-                    <div class="award-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                    </div>
-                    <div class="award-content">
-                        <h4 class="award-title">제4회 빅스타 경진대회 특별상</h4>
-                        <p class="award-desc">천연가스 수요 장기 시계열 예측 모델 개발</p>
-                        <span class="award-date">2022.08 ~ 2022.10</span>
-                    </div>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                    </div>
-                    <div class="award-content">
-                        <h4 class="award-title">D&A 제1회 산학연계공모전 1위 (Kaggle)</h4>
-                        <p class="award-desc">고객 – 매니저 매칭 모델 개발</p>
-                        <span class="award-date">2021.11 ~ 2021.12</span>
-                    </div>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                    </div>
-                    <div class="award-content">
-                        <h4 class="award-title">대전시 빅데이터 분석 공모전 2위</h4>
-                        <p class="award-desc">주차난 해결을 위한 주차장 수요 예측 모델 개발</p>
-                        <span class="award-date">2021.05 ~ 2021.06</span>
-                    </div>
-                </div>
-            </div>
-            <div class="skills-container fade-in delay-3" style="margin-top: 3rem;">
-                <div class="skill-card">
-                    <h3 class="skill-name">ADsP</h3>
-                    <p class="skill-items">데이터분석 준전문가<br>2019.09</p>
-                </div>
-                <div class="skill-card">
-                    <h3 class="skill-name">빅데이터분석기사</h3>
-                    <p class="skill-items">한국데이터산업진흥원<br>2021.12</p>
-                </div>
-                <div class="skill-card">
-                    <h3 class="skill-name">SQLD</h3>
-                    <p class="skill-items">SQL 개발자<br>2022.09</p>
-                </div>
-                <div class="skill-card">
-                    <h3 class="skill-name">TOEIC 910</h3>
-                    <p class="skill-items">2025.01</p>
-                </div>
-                <div class="skill-card">
-                    <h3 class="skill-name">OPIc IH</h3>
-                    <p class="skill-items">2025.07</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <!-- Awards -->
+            <section id="awards">
+                <h2>Awards</h2>
+                <ul class="simple-list">
+                    <li>
+                        <div>
+                            <span class="list-title">제4회 빅스타 경진대회 특별상</span>
+                            <div class="list-subtitle">천연가스 수요 장기 시계열 예측 모델 개발</div>
+                        </div>
+                        <span class="item-date">2022.10</span>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="list-title">D&A 제1회 산학연계공모전 1위 (Kaggle)</span>
+                            <div class="list-subtitle">고객 – 매니저 매칭 모델 개발</div>
+                        </div>
+                        <span class="item-date">2021.12</span>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="list-title">대전시 빅데이터 분석 공모전 2위</span>
+                            <div class="list-subtitle">주차난 해결을 위한 주차장 수요 예측 모델 개발</div>
+                        </div>
+                        <span class="item-date">2021.06</span>
+                    </li>
+                </ul>
+            </section>
 
-    <section id="contact">
-        <div class="container">
-            <div class="contact-section fade-in">
-                <h2>Get In Touch</h2>
-                <p>프로젝트 협업, 연구 협력, 또는 궁금한 점이 있으시면 언제든지 연락주세요!</p>
-                <div class="contact-links">
-                    <a href="mailto:hanseungsoo63@gmail.com" class="contact-link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        hanseungsoo63@gmail.com
-                    </a>
-                    <a href="https://github.com/hanseungsoo13" target="_blank" class="contact-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/seungsoo-han-6b1859231/" target="_blank" class="contact-link">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://hanseungsoo13.tistory.com" target="_blank" class="contact-link">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        Tech Blog
-                    </a>
-                </div>
-            </div>
+            <!-- Certificates -->
+            <section id="certificates">
+                <h2>Certificates</h2>
+                <ul class="simple-list">
+                    <li>
+                        <span class="list-title">OPIc IH</span>
+                        <span class="item-date">2025.07</span>
+                    </li>
+                    <li>
+                        <span class="list-title">TOEIC 910</span>
+                        <span class="item-date">2025.01</span>
+                    </li>
+                    <li>
+                        <span class="list-title">SQL개발자(SQLD)</span>
+                        <span class="item-date">2022.09</span>
+                    </li>
+                    <li>
+                        <span class="list-title">빅데이터분석기사</span>
+                        <span class="item-date">2021.12</span>
+                    </li>
+                    <li>
+                        <span class="list-title">데이터분석 준전문가(ADsP)</span>
+                        <span class="item-date">2019.09</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Activities -->
+            <section id="activities">
+                <h2>Activities</h2>
+                <ul class="simple-list">
+                    <li>
+                        <div>
+                            <span class="list-title">7th Naver Connect. BoostCamp AI Tech</span>
+                            <div class="list-subtitle">CV domain</div>
+                        </div>
+                        <span class="item-date">2024.08 - 2025.02</span>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="list-title">X:AI (AI 학회)</span>
+                            <div class="list-subtitle">Conference Session</div>
+                        </div>
+                        <span class="item-date">2024.07 - 2024.11</span>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="list-title">5th LG Aimers</span>
+                        </div>
+                        <span class="item-date">2024.07 - 2024.08</span>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="list-title">D&A (데이터 분석 학회)</span>
+                            <div class="list-subtitle">ML, DL, Conference Session</div>
+                        </div>
+                        <span class="item-date">2019 - 2020</span>
+                    </li>
+                </ul>
+            </section>
         </div>
-    </section>
+    </main>
 
     <footer>
         <div class="container">
             <p>© 2026 Han Seung Soo. All rights reserved.</p>
         </div>
     </footer>
-
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <button class="modal-close" onclick="closeModal(event)">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                </button>
-                <span class="modal-category" id="modalCategory"></span>
-                <h3 class="modal-title" id="modalTitle"></h3>
-                <p class="modal-org" id="modalOrg"></p>
-                <p class="modal-date" id="modalDate"></p>
-            </div>
-            <div class="modal-body" id="modalBody"></div>
-        </div>
-    </div>
-
-    <script>
-        const projectData = {
-            project1: {
-                category: 'Robotics',
-                title: '이기종 협동 로봇 전시',
-                org: 'Funzin · ADEX 2025',
-                date: '2025.07 ~ 2025.10',
-                details: [
-                    '로봇팔, 이동 로봇 협력 작업 수행 전시 (ADEX 2025)',
-                    '이동 로봇 목적지 도착(주차) 알고리즘 및 경로 생성 알고리즘 개선으로 작업 수행 정확도 2배 상승',
-                    '협동 작업 수행을 위한 Queue 기반의 Job Scheduler 노드 구성, 작업 실패 시 복구 알고리즘 구축',
-                    'ROS Topic, Service, Action을 활용한 로봇 제어, 실시간 로봇별 상태 확인, 목표 달성 여부 확인'
-                ]
-            },
-            project2: {
-                category: 'Computer Vision',
-                title: 'Enhancing Lightweight IRSR Models via Knowledge Distillation',
-                org: 'Funzin · ICTC 2025 Oral Session',
-                date: '2025.04 ~ 2025.07',
-                details: [
-                    'IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안',
-                    'IR 이미지에 특화된 Sobel Transform, Spectral Loss를 활용한 Loss Function 설계',
-                    '일반적인 학습 프레임워크 대비 4%의 성능 향상 달성',
-                    'ICTC 2025 투고 및 Oral Session 발표'
-                ]
-            },
-            project3: {
-                category: 'Vision Language Model',
-                title: '트래블로그: 사진 기반 여행 블로그 생성기',
-                org: 'Naver Boostcamp · KCI 논문',
-                date: '2025.01 ~ 2025.02',
-                details: [
-                    'VLM(Qwen-VL)과 LLM(하이퍼클로바) API를 활용해 LLM의 시각적 한계 극복 및 문장 생성 능력 극대화',
-                    '프롬프트 엔지니어링과 파인튜닝 만으로 기존 LLM 대비 10% 이상의 상승된 양질의 블로그 생성',
-                    'AI Safety 확보',
-                    'VLM 활용 캡션 생성 전처리 수행, 멀티 프로세싱을 통한 추론 시간 단축 및 효율적인 GPU 활용 기여',
-                    '한국 컴퓨터정보학회 논문지(KCI) 투고'
-                ]
-            },
-            project4: {
-                category: 'Vision Language Model',
-                title: 'Text Guided Zero Shot Composed Image Retrieval',
-                org: 'X:AI Conference',
-                date: '2024.07 ~ 2024.11',
-                details: [
-                    '입력 이미지에 Segmentation Module(SAM)을 추가해 모델이 이미지 속 필요한 부분만 활용할 수 있도록 전처리',
-                    '기존 Projection Module을 Q-Former를 응용한 형태로 변환하여 Text-Image alignment 향상',
-                    'COCO Segmentation Benchmark 실험 결과 33.2%로 비공식 1위 달성 (Papers with code 기준)'
-                ]
-            },
-            project5: {
-                category: 'Computer Vision',
-                title: '재활용 쓰레기 객체 검출',
-                org: 'Naver BoostCamp',
-                date: '2024.09 ~ 2024.10',
-                details: [
-                    'MMDetection Library를 활용한 Object Detection 모델 개발 (DDQ, DINO)',
-                    'Data Augmentation, Pseudo Labelling, Test Time Augmentation을 활용한 30%의 검출 능력 향상',
-                    'Copy-Paste 기법과 Mosaic 기법을 결합한 Data Augmentation 기법 개발'
-                ]
-            },
-            project6: {
-                category: 'Various',
-                title: 'Other Related Projects',
-                org: 'Naver Boostcamp & Kookmin Univ.',
-                date: '2021 ~ 2024',
-                details: [
-                    '<strong>Hand Bone Semantic Segmentation</strong> (2024.11) - Naver Boostcamp',
-                    '<strong>Receipt Text OCR</strong> (2024.10) - Naver Boostcamp',
-                    '<strong>Sketch Image Classification</strong> (2024.09) - Naver Boostcamp',
-                    '<strong>Improving DeepFake Detection with Effectiveness</strong> (2021.10) - Kookmin Univ.',
-                    '<strong>Develop Counseling Chatbot for Depression Patients</strong> (2021.05) - Kookmin Univ.'
-                ]
-            }
-        };
-
-        function openModal(projectId) {
-            const data = projectData[projectId];
-            document.getElementById('modalCategory').textContent = data.category;
-            document.getElementById('modalTitle').textContent = data.title;
-            document.getElementById('modalOrg').textContent = data.org;
-            document.getElementById('modalDate').textContent = data.date;
-            
-            const detailsHtml = '<h4>주요 성과</h4><ul>' + data.details.map(d => '<li>' + d + '</li>').join('') + '</ul>';
-            document.getElementById('modalBody').innerHTML = detailsHtml;
-            document.getElementById('modalOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(event) {
-            if (event.target === document.getElementById('modalOverlay') || 
-                event.target.closest('.modal-close')) {
-                document.getElementById('modalOverlay').classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.getElementById('modalOverlay').classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
