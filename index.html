@@ -54,6 +54,7 @@
             background: var(--bg-secondary);
             border-bottom: 1px solid var(--border-color);
             padding: 3rem 0;
+            position: relative;
         }
 
         .header-content {
@@ -116,6 +117,29 @@
         .contact-links svg {
             width: 16px;
             height: 16px;
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+        }
+
+        .lang-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
         }
 
         /* Navigation */
@@ -393,12 +417,15 @@
 <body>
     <header>
         <div class="container">
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langBtn">English</button>
+            </div>
             <div class="header-content">
                 <img src="https://avatars.githubusercontent.com/u/75753717?v=4" alt="Han Seung Soo" class="profile-image">
                 <div class="header-info">
-                    <h1>한승수 (Seung Soo Han)</h1>
-                    <p class="subtitle">AI Researcher at Funzin</p>
-                    <p class="bio">
+                    <h1 data-ko="한승수 (Seung Soo Han)" data-en="Seung Soo Han">한승수 (Seung Soo Han)</h1>
+                    <p class="subtitle" data-ko="AI Researcher at Funzin" data-en="AI Researcher at Funzin">AI Researcher at Funzin</p>
+                    <p class="bio" data-ko="컴퓨터 비전과 Vision Language Model 분야를 연구하는 AI 연구원입니다.&#10;다양한 AI 응용 연구와 논문 게재 경험을 보유하고 있습니다." data-en="AI researcher specializing in Computer Vision and Vision Language Models.&#10;Experienced in various AI application research and paper publications.">
                         컴퓨터 비전과 Vision Language Model 분야를 연구하는 AI 연구원입니다.
                         다양한 AI 응용 연구와 논문 게재 경험을 보유하고 있습니다.
                     </p>
@@ -428,13 +455,13 @@
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#interests">Research</a></li>
-                <li><a href="#career">Career</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#awards">Awards</a></li>
+                <li><a href="#interests" data-ko="Research" data-en="Research">Research</a></li>
+                <li><a href="#career" data-ko="Career" data-en="Career">Career</a></li>
+                <li><a href="#education" data-ko="Education" data-en="Education">Education</a></li>
+                <li><a href="#publications" data-ko="Publications" data-en="Publications">Publications</a></li>
+                <li><a href="#projects" data-ko="Projects" data-en="Projects">Projects</a></li>
+                <li><a href="#skills" data-ko="Skills" data-en="Skills">Skills</a></li>
+                <li><a href="#awards" data-ko="Awards" data-en="Awards">Awards</a></li>
             </ul>
         </div>
     </nav>
@@ -443,269 +470,269 @@
         <div class="container">
             <!-- Research Interests -->
             <section id="interests">
-                <h2>Research Interests</h2>
+                <h2 data-ko="Research Interests" data-en="Research Interests">Research Interests</h2>
                 <div class="interests-list">
-                    <span class="interest-tag">3D Image Processing</span>
-                    <span class="interest-tag">Vision Language Action Model</span>
-                    <span class="interest-tag">Vision Language Model</span>
-                    <span class="interest-tag">Object Tracking</span>
-                    <span class="interest-tag">Super Resolution</span>
+                    <span class="interest-tag" data-ko="3D Image Processing" data-en="3D Image Processing">3D Image Processing</span>
+                    <span class="interest-tag" data-ko="Vision Language Action Model" data-en="Vision Language Action Model">Vision Language Action Model</span>
+                    <span class="interest-tag" data-ko="Vision Language Model" data-en="Vision Language Model">Vision Language Model</span>
+                    <span class="interest-tag" data-ko="Object Tracking" data-en="Object Tracking">Object Tracking</span>
+                    <span class="interest-tag" data-ko="Super Resolution" data-en="Super Resolution">Super Resolution</span>
                 </div>
             </section>
 
             <!-- Career -->
             <section id="career">
-                <h2>Career</h2>
+                <h2 data-ko="Career" data-en="Career">Career</h2>
                 <div class="item">
                     <div class="item-header">
-                        <span class="item-title">AI 연구원</span>
+                        <span class="item-title" data-ko="AI 연구원" data-en="AI Researcher">AI 연구원</span>
                         <span class="item-date">2025.03 - Present</span>
                     </div>
-                    <div class="item-subtitle">㈜펀진 지능화연구실 AI Architecture팀</div>
+                    <div class="item-subtitle" data-ko="㈜펀진 지능화연구실 AI Architecture팀" data-en="Funzin Intelligence Research Lab, AI Architecture Team">㈜펀진 지능화연구실 AI Architecture팀</div>
                 </div>
             </section>
 
             <!-- Education -->
             <section id="education">
-                <h2>Education</h2>
+                <h2 data-ko="Education" data-en="Education">Education</h2>
                 <div class="item">
                     <div class="item-header">
-                        <span class="item-title">7th Naver Connect. BoostCamp AI Tech</span>
+                        <span class="item-title" data-ko="7th Naver Connect. BoostCamp AI Tech" data-en="7th Naver Connect. BoostCamp AI Tech">7th Naver Connect. BoostCamp AI Tech</span>
                         <span class="item-date">2024.08 - 2025.02</span>
                     </div>
-                    <div class="item-subtitle">Computer Vision Domain</div>
+                    <div class="item-subtitle" data-ko="Computer Vision Domain" data-en="Computer Vision Domain">Computer Vision Domain</div>
                 </div>
                 <div class="item">
                     <div class="item-header">
-                        <span class="item-title">국민대학교 빅데이터경영통계전공</span>
+                        <span class="item-title" data-ko="국민대학교 빅데이터경영통계전공" data-en="Kookmin University, Big Data Business Statistics">국민대학교 빅데이터경영통계전공</span>
                         <span class="item-date">2018.03 - 2022.02</span>
                     </div>
-                    <div class="item-subtitle">정보보안암호수학과 부전공</div>
-                    <div class="item-desc">수석 졸업 (평점: 4.26/4.5, 전공평점: 4.41/4.5)</div>
+                    <div class="item-subtitle" data-ko="정보보안암호수학과 부전공" data-en="Minor in Information Security & Cryptography Mathematics">정보보안암호수학과 부전공</div>
+                    <div class="item-desc" data-ko="수석 졸업 (평점: 4.26/4.5, 전공평점: 4.41/4.5)" data-en="Graduated Summa Cum Laude (GPA: 4.26/4.5, Major GPA: 4.41/4.5)">수석 졸업 (평점: 4.26/4.5, 전공평점: 4.41/4.5)</div>
                 </div>
             </section>
 
 
             <!-- Publications -->
             <section id="publications">
-                <h2>Publications</h2>
+                <h2 data-ko="Publications" data-en="Publications">Publications</h2>
                 <div class="paper-item">
-                    <span class="paper-status">Under Review</span>
-                    <a href="projects/segcir.html" class="paper-title">SegCIR - Segment-Aware Visual Encoding for Zero-Shot Composed Image Retrieval</a>
-                    <div class="paper-venue">공동 1저자</div>
+                    <span class="paper-status" data-ko="Under Review" data-en="Under Review">Under Review</span>
+                    <a href="projects/segcir.html" class="paper-title" data-ko="SegCIR - Segment-Aware Visual Encoding for Zero-Shot Composed Image Retrieval" data-en="SegCIR - Segment-Aware Visual Encoding for Zero-Shot Composed Image Retrieval">SegCIR - Segment-Aware Visual Encoding for Zero-Shot Composed Image Retrieval</a>
+                    <div class="paper-venue" data-ko="공동 1저자" data-en="Co-first Author">공동 1저자</div>
                 </div>
                 <div class="paper-item">
-                    <span class="paper-status">ICTC 2025</span>
-                    <a href="projects/irsr-kd.html" class="paper-title">Enhancing Lightweight IRSR Models via Knowledge Distillation with Structural and Spectral Losses</a>
-                    <div class="paper-venue">1저자 · Oral Session</div>
+                    <span class="paper-status" data-ko="ICTC 2025" data-en="ICTC 2025">ICTC 2025</span>
+                    <a href="projects/irsr-kd.html" class="paper-title" data-ko="Enhancing Lightweight IRSR Models via Knowledge Distillation with Structural and Spectral Losses" data-en="Enhancing Lightweight IRSR Models via Knowledge Distillation with Structural and Spectral Losses">Enhancing Lightweight IRSR Models via Knowledge Distillation with Structural and Spectral Losses</a>
+                    <div class="paper-venue" data-ko="1저자 · Oral Session" data-en="First Author · Oral Session">1저자 · Oral Session</div>
                 </div>
                 <div class="paper-item">
-                    <span class="paper-status">KCI</span>
-                    <a href="projects/travelogue.html" class="paper-title">시각언어모델 기반 맥락 추출과 한국어 대규모 언어모델 파인튜닝을 통한 여행 블로그 콘텐츠 자동 생성</a>
-                    <div class="paper-venue">2저자 · 한국컴퓨터정보학회 논문지</div>
+                    <span class="paper-status" data-ko="KCI" data-en="KCI">KCI</span>
+                    <a href="projects/travelogue.html" class="paper-title" data-ko="시각언어모델 기반 맥락 추출과 한국어 대규모 언어모델 파인튜닝을 통한 여행 블로그 콘텐츠 자동 생성" data-en="Automatic Travel Blog Content Generation via Vision Language Model-based Context Extraction and Korean Large Language Model Fine-tuning">시각언어모델 기반 맥락 추출과 한국어 대규모 언어모델 파인튜닝을 통한 여행 블로그 콘텐츠 자동 생성</a>
+                    <div class="paper-venue" data-ko="2저자 · 한국컴퓨터정보학회 논문지" data-en="Second Author · Journal of the Korea Computer Information Society">2저자 · 한국컴퓨터정보학회 논문지</div>
                 </div>
             </section>
 
             <!-- Projects -->
             <section id="projects">
-                <h2>Projects</h2>
+                <h2 data-ko="Projects" data-en="Projects">Projects</h2>
                 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">Multi Spectral Image Anomaly Detection</span>
-                        <span class="item-date">2025.11 - 진행중</span>
+                        <span class="project-title" data-ko="Multi Spectral Image Anomaly Detection" data-en="Multi Spectral Image Anomaly Detection">Multi Spectral Image Anomaly Detection</span>
+                        <span class="item-date" data-ko="2025.11 - 진행중" data-en="2025.11 - Ongoing">2025.11 - 진행중</span>
                     </div>
-                    <div class="project-org">Funzin · 개발 과제</div>
+                    <div class="project-org" data-ko="Funzin · 개발 과제" data-en="Funzin · Development Project">Funzin · 개발 과제</div>
                     <ul class="item-details">
-                        <li>다분광으로 촬영된 이미지 속 위장막 식별 프로젝트</li>
-                        <li>FFT를 활용한 다분광(4 channel) 이미지 정합</li>
-                        <li>Multi Scale Filter와 Cosine Similarity를 활용한 Anomaly Detection</li>
-                        <li>Streamlit 기반 다분광 이미지 라벨링 툴 개발</li>
+                        <li data-ko="다분광으로 촬영된 이미지 속 위장막 식별 프로젝트" data-en="Project to identify camouflage nets in multi-spectral images">다분광으로 촬영된 이미지 속 위장막 식별 프로젝트</li>
+                        <li data-ko="FFT를 활용한 다분광(4 channel) 이미지 정합" data-en="Multi-spectral (4 channel) image registration using FFT">FFT를 활용한 다분광(4 channel) 이미지 정합</li>
+                        <li data-ko="Multi Scale Filter와 Cosine Similarity를 활용한 Anomaly Detection" data-en="Anomaly Detection using Multi Scale Filter and Cosine Similarity">Multi Scale Filter와 Cosine Similarity를 활용한 Anomaly Detection</li>
+                        <li data-ko="Streamlit 기반 다분광 이미지 라벨링 툴 개발" data-en="Development of multi-spectral image labeling tool based on Streamlit">Streamlit 기반 다분광 이미지 라벨링 툴 개발</li>
                     </ul>
-                    <a href="projects/multi-spectral-anomaly.html" class="project-link">자세히 보기 →</a>
+                    <a href="projects/multi-spectral-anomaly.html" class="project-link" data-ko="자세히 보기 →" data-en="View Details →">자세히 보기 →</a>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">Multi Drone View Multi Object Tracking</span>
-                        <span class="item-date">2025.11 - 진행중</span>
+                        <span class="project-title" data-ko="Multi Drone View Multi Object Tracking" data-en="Multi Drone View Multi Object Tracking">Multi Drone View Multi Object Tracking</span>
+                        <span class="item-date" data-ko="2025.11 - 진행중" data-en="2025.11 - Ongoing">2025.11 - 진행중</span>
                     </div>
-                    <div class="project-org">Funzin · 팀 프로젝트 (참여도 60%)</div>
+                    <div class="project-org" data-ko="Funzin · 팀 프로젝트 (참여도 60%)" data-en="Funzin · Team Project (60% contribution)">Funzin · 팀 프로젝트 (참여도 60%)</div>
                     <ul class="item-details">
-                        <li>다중 드론에서 촬영된 영상 속 다중 객체 Re-ID</li>
-                        <li>YOLO + Kalman Filter를 활용한 단일 카메라 객체 추적</li>
-                        <li>드론의 IMU 정보, 카메라 파라미터를 활용한 객체 GPS 위치 추정</li>
-                        <li>BFS 알고리즘과 SORT 모델을 활용한 다중 카메라 객체 Re-ID 구현</li>
-                        <li>IsaacSIM 시뮬레이터로 드론 카메라 움직임 구현, 학습 및 추론 데이터셋 생성</li>
+                        <li data-ko="다중 드론에서 촬영된 영상 속 다중 객체 Re-ID" data-en="Multi-object Re-ID in videos captured by multiple drones">다중 드론에서 촬영된 영상 속 다중 객체 Re-ID</li>
+                        <li data-ko="YOLO + Kalman Filter를 활용한 단일 카메라 객체 추적" data-en="Single camera object tracking using YOLO + Kalman Filter">YOLO + Kalman Filter를 활용한 단일 카메라 객체 추적</li>
+                        <li data-ko="드론의 IMU 정보, 카메라 파라미터를 활용한 객체 GPS 위치 추정" data-en="Object GPS location estimation using drone IMU information and camera parameters">드론의 IMU 정보, 카메라 파라미터를 활용한 객체 GPS 위치 추정</li>
+                        <li data-ko="BFS 알고리즘과 SORT 모델을 활용한 다중 카메라 객체 Re-ID 구현" data-en="Multi-camera object Re-ID implementation using BFS algorithm and SORT model">BFS 알고리즘과 SORT 모델을 활용한 다중 카메라 객체 Re-ID 구현</li>
+                        <li data-ko="IsaacSIM 시뮬레이터로 드론 카메라 움직임 구현, 학습 및 추론 데이터셋 생성" data-en="Implementation of drone camera movement using IsaacSIM simulator, generation of training and inference datasets">IsaacSIM 시뮬레이터로 드론 카메라 움직임 구현, 학습 및 추론 데이터셋 생성</li>
                     </ul>
-                    <a href="projects/multi-drone-tracking.html" class="project-link">자세히 보기 →</a>
+                    <a href="projects/multi-drone-tracking.html" class="project-link" data-ko="자세히 보기 →" data-en="View Details →">자세히 보기 →</a>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Robotics</span>
+                    <span class="project-category" data-ko="Robotics" data-en="Robotics">Robotics</span>
                     <div class="item-header">
-                        <span class="project-title">이기종 협동 로봇 전시</span>
+                        <span class="project-title" data-ko="이기종 협동 로봇 전시" data-en="Heterogeneous Collaborative Robot Exhibition">이기종 협동 로봇 전시</span>
                         <span class="item-date">2025.07 - 2025.10</span>
                     </div>
-                    <div class="project-org">Funzin · ADEX 2025</div>
+                    <div class="project-org" data-ko="Funzin · ADEX 2025" data-en="Funzin · ADEX 2025">Funzin · ADEX 2025</div>
                     <ul class="item-details">
-                        <li>로봇팔, 이동 로봇 협력 작업 수행 전시 (ADEX 2025)</li>
-                        <li>이동 로봇 목적지 도착 알고리즘 및 경로 생성 알고리즘 개선으로 작업 수행 정확도 2배 상승</li>
-                        <li>Queue 기반의 Job Scheduler 노드 구성, 작업 실패 시 복구 알고리즘 구축</li>
-                        <li>ROS Topic, Service, Action을 활용한 로봇 제어</li>
+                        <li data-ko="로봇팔, 이동 로봇 협력 작업 수행 전시 (ADEX 2025)" data-en="Exhibition of collaborative work between robot arm and mobile robot (ADEX 2025)">로봇팔, 이동 로봇 협력 작업 수행 전시 (ADEX 2025)</li>
+                        <li data-ko="이동 로봇 목적지 도착 알고리즘 및 경로 생성 알고리즘 개선으로 작업 수행 정확도 2배 상승" data-en="2x improvement in task execution accuracy through improvement of mobile robot destination arrival algorithm and path generation algorithm">이동 로봇 목적지 도착 알고리즘 및 경로 생성 알고리즘 개선으로 작업 수행 정확도 2배 상승</li>
+                        <li data-ko="Queue 기반의 Job Scheduler 노드 구성, 작업 실패 시 복구 알고리즘 구축" data-en="Queue-based Job Scheduler node configuration, recovery algorithm implementation for task failures">Queue 기반의 Job Scheduler 노드 구성, 작업 실패 시 복구 알고리즘 구축</li>
+                        <li data-ko="ROS Topic, Service, Action을 활용한 로봇 제어" data-en="Robot control using ROS Topic, Service, and Action">ROS Topic, Service, Action을 활용한 로봇 제어</li>
                     </ul>
-                    <a href="projects/multi-robot.html" class="project-link">자세히 보기 →</a>
+                    <a href="projects/multi-robot.html" class="project-link" data-ko="자세히 보기 →" data-en="View Details →">자세히 보기 →</a>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">Enhancing Lightweight IRSR Models via Knowledge Distillation</span>
+                        <span class="project-title" data-ko="Enhancing Lightweight IRSR Models via Knowledge Distillation" data-en="Enhancing Lightweight IRSR Models via Knowledge Distillation">Enhancing Lightweight IRSR Models via Knowledge Distillation</span>
                         <span class="item-date">2025.04 - 2025.07</span>
                     </div>
-                    <div class="project-org">Funzin · ICTC 2025 Oral Session</div>
+                    <div class="project-org" data-ko="Funzin · ICTC 2025 Oral Session" data-en="Funzin · ICTC 2025 Oral Session">Funzin · ICTC 2025 Oral Session</div>
                     <ul class="item-details">
-                        <li>IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</li>
-                        <li>IR 이미지에 특화된 Sobel Transform, Spectral Loss를 활용한 Loss Function 설계</li>
-                        <li>일반적인 학습 프레임워크 대비 4%의 성능 향상 달성</li>
+                        <li data-ko="IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안" data-en="Proposed the first training framework introducing Knowledge Distillation techniques to IR Image Super Resolution">IR Image Super Resolution 분야에 Knowledge Distillation 기법을 최초로 도입한 학습 프레임워크 제안</li>
+                        <li data-ko="IR 이미지에 특화된 Sobel Transform, Spectral Loss를 활용한 Loss Function 설계" data-en="Designed Loss Function using IR image-specific Sobel Transform and Spectral Loss">IR 이미지에 특화된 Sobel Transform, Spectral Loss를 활용한 Loss Function 설계</li>
+                        <li data-ko="일반적인 학습 프레임워크 대비 4%의 성능 향상 달성" data-en="Achieved 4% performance improvement compared to conventional training framework">일반적인 학습 프레임워크 대비 4%의 성능 향상 달성</li>
                     </ul>
-                    <a href="projects/irsr-kd.html" class="project-link">자세히 보기 →</a>
+                    <a href="projects/irsr-kd.html" class="project-link" data-ko="자세히 보기 →" data-en="View Details →">자세히 보기 →</a>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Vision Language Model</span>
+                    <span class="project-category" data-ko="Vision Language Model" data-en="Vision Language Model">Vision Language Model</span>
                     <div class="item-header">
-                        <span class="project-title">트래블로그: 사진 기반 여행 블로그 생성기</span>
+                        <span class="project-title" data-ko="트래블로그: 사진 기반 여행 블로그 생성기" data-en="Travelogue: Photo-based Travel Blog Generator">트래블로그: 사진 기반 여행 블로그 생성기</span>
                         <span class="item-date">2025.01 - 2025.02</span>
                     </div>
-                    <div class="project-org">Naver Boostcamp · KCI 논문</div>
+                    <div class="project-org" data-ko="Naver Boostcamp · KCI 논문" data-en="Naver Boostcamp · KCI Paper">Naver Boostcamp · KCI 논문</div>
                     <ul class="item-details">
-                        <li>VLM(Qwen-VL)과 LLM(하이퍼클로바) API를 활용해 LLM의 시각적 한계 극복</li>
-                        <li>프롬프트 엔지니어링과 파인튜닝으로 기존 LLM 대비 10% 이상 향상된 블로그 생성</li>
-                        <li>멀티 프로세싱을 통한 추론 시간 단축 및 효율적인 GPU 활용</li>
+                        <li data-ko="VLM(Qwen-VL)과 LLM(하이퍼클로바) API를 활용해 LLM의 시각적 한계 극복" data-en="Overcame visual limitations of LLM using VLM (Qwen-VL) and LLM (HyperCLOVA) APIs">VLM(Qwen-VL)과 LLM(하이퍼클로바) API를 활용해 LLM의 시각적 한계 극복</li>
+                        <li data-ko="프롬프트 엔지니어링과 파인튜닝으로 기존 LLM 대비 10% 이상 향상된 블로그 생성" data-en="Achieved 10%+ improvement in blog generation compared to existing LLM through prompt engineering and fine-tuning">프롬프트 엔지니어링과 파인튜닝으로 기존 LLM 대비 10% 이상 향상된 블로그 생성</li>
+                        <li data-ko="멀티 프로세싱을 통한 추론 시간 단축 및 효율적인 GPU 활용" data-en="Reduced inference time through multi-processing and efficient GPU utilization">멀티 프로세싱을 통한 추론 시간 단축 및 효율적인 GPU 활용</li>
                     </ul>
-                    <a href="projects/travelogue.html" class="project-link">자세히 보기 →</a>
+                    <a href="projects/travelogue.html" class="project-link" data-ko="자세히 보기 →" data-en="View Details →">자세히 보기 →</a>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Vision Language Model</span>
+                    <span class="project-category" data-ko="Vision Language Model" data-en="Vision Language Model">Vision Language Model</span>
                     <div class="item-header">
-                        <span class="project-title">Text Guided Zero Shot Composed Image Retrieval</span>
+                        <span class="project-title" data-ko="Text Guided Zero Shot Composed Image Retrieval" data-en="Text Guided Zero Shot Composed Image Retrieval">Text Guided Zero Shot Composed Image Retrieval</span>
                         <span class="item-date">2024.07 - 2024.11</span>
                     </div>
-                    <div class="project-org">X:AI Conference</div>
+                    <div class="project-org" data-ko="X:AI Conference" data-en="X:AI Conference">X:AI Conference</div>
                     <ul class="item-details">
-                        <li>Segmentation Module(SAM)을 추가해 이미지 속 필요한 부분만 활용하도록 전처리</li>
-                        <li>Q-Former를 응용한 Projection Module로 Text-Image alignment 향상</li>
-                        <li>COCO Segmentation Benchmark 33.2%로 비공식 1위 달성 (Papers with code 기준)</li>
+                        <li data-ko="Segmentation Module(SAM)을 추가해 이미지 속 필요한 부분만 활용하도록 전처리" data-en="Added Segmentation Module (SAM) to preprocess and utilize only necessary parts of images">Segmentation Module(SAM)을 추가해 이미지 속 필요한 부분만 활용하도록 전처리</li>
+                        <li data-ko="Q-Former를 응용한 Projection Module로 Text-Image alignment 향상" data-en="Improved Text-Image alignment with Projection Module based on Q-Former">Q-Former를 응용한 Projection Module로 Text-Image alignment 향상</li>
+                        <li data-ko="COCO Segmentation Benchmark 33.2%로 비공식 1위 달성 (Papers with code 기준)" data-en="Achieved unofficial 1st place with 33.2% on COCO Segmentation Benchmark (based on Papers with code)">COCO Segmentation Benchmark 33.2%로 비공식 1위 달성 (Papers with code 기준)</li>
                     </ul>
-                    <a href="projects/segcir.html" class="project-link">자세히 보기 →</a>
+                    <a href="projects/segcir.html" class="project-link" data-ko="자세히 보기 →" data-en="View Details →">자세히 보기 →</a>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">재활용 쓰레기 객체 검출</span>
+                        <span class="project-title" data-ko="재활용 쓰레기 객체 검출" data-en="Recyclable Waste Object Detection">재활용 쓰레기 객체 검출</span>
                         <span class="item-date">2024.09 - 2024.10</span>
                     </div>
-                    <div class="project-org">Naver BoostCamp</div>
+                    <div class="project-org" data-ko="Naver BoostCamp" data-en="Naver BoostCamp">Naver BoostCamp</div>
                     <ul class="item-details">
-                        <li>MMDetection Library를 활용한 Object Detection 모델 개발 (DDQ, DINO)</li>
-                        <li>Data Augmentation, Pseudo Labelling, TTA를 활용한 30% 검출 능력 향상</li>
-                        <li>Copy-Paste 기법과 Mosaic 기법을 결합한 Data Augmentation 기법 개발</li>
+                        <li data-ko="MMDetection Library를 활용한 Object Detection 모델 개발 (DDQ, DINO)" data-en="Developed Object Detection model using MMDetection Library (DDQ, DINO)">MMDetection Library를 활용한 Object Detection 모델 개발 (DDQ, DINO)</li>
+                        <li data-ko="Data Augmentation, Pseudo Labelling, TTA를 활용한 30% 검출 능력 향상" data-en="30% improvement in detection capability using Data Augmentation, Pseudo Labelling, and TTA">Data Augmentation, Pseudo Labelling, TTA를 활용한 30% 검출 능력 향상</li>
+                        <li data-ko="Copy-Paste 기법과 Mosaic 기법을 결합한 Data Augmentation 기법 개발" data-en="Developed Data Augmentation technique combining Copy-Paste and Mosaic methods">Copy-Paste 기법과 Mosaic 기법을 결합한 Data Augmentation 기법 개발</li>
                     </ul>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">Hand Bone Semantic Segmentation</span>
+                        <span class="project-title" data-ko="Hand Bone Semantic Segmentation" data-en="Hand Bone Semantic Segmentation">Hand Bone Semantic Segmentation</span>
                         <span class="item-date">2024.11</span>
                     </div>
-                    <div class="project-org">Naver Boostcamp</div>
+                    <div class="project-org" data-ko="Naver Boostcamp" data-en="Naver Boostcamp">Naver Boostcamp</div>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">Receipt Text OCR</span>
+                        <span class="project-title" data-ko="Receipt Text OCR" data-en="Receipt Text OCR">Receipt Text OCR</span>
                         <span class="item-date">2024.10</span>
                     </div>
-                    <div class="project-org">Naver Boostcamp</div>
+                    <div class="project-org" data-ko="Naver Boostcamp" data-en="Naver Boostcamp">Naver Boostcamp</div>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">Sketch Image Classification</span>
+                        <span class="project-title" data-ko="Sketch Image Classification" data-en="Sketch Image Classification">Sketch Image Classification</span>
                         <span class="item-date">2024.09</span>
                     </div>
-                    <div class="project-org">Naver Boostcamp</div>
+                    <div class="project-org" data-ko="Naver Boostcamp" data-en="Naver Boostcamp">Naver Boostcamp</div>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">Computer Vision</span>
+                    <span class="project-category" data-ko="Computer Vision" data-en="Computer Vision">Computer Vision</span>
                     <div class="item-header">
-                        <span class="project-title">Improving DeepFake Detection with Effectiveness</span>
+                        <span class="project-title" data-ko="Improving DeepFake Detection with Effectiveness" data-en="Improving DeepFake Detection with Effectiveness">Improving DeepFake Detection with Effectiveness</span>
                         <span class="item-date">2021.10</span>
                     </div>
-                    <div class="project-org">Kookmin Univ.</div>
+                    <div class="project-org" data-ko="Kookmin Univ." data-en="Kookmin Univ.">Kookmin Univ.</div>
                 </div>
 
                 <div class="project-item">
-                    <span class="project-category">NLP</span>
+                    <span class="project-category" data-ko="NLP" data-en="NLP">NLP</span>
                     <div class="item-header">
-                        <span class="project-title">Develop Counseling Chatbot for Depression Patients</span>
+                        <span class="project-title" data-ko="Develop Counseling Chatbot for Depression Patients" data-en="Develop Counseling Chatbot for Depression Patients">Develop Counseling Chatbot for Depression Patients</span>
                         <span class="item-date">2021.05</span>
                     </div>
-                    <div class="project-org">Kookmin Univ.</div>
+                    <div class="project-org" data-ko="Kookmin Univ." data-en="Kookmin Univ.">Kookmin Univ.</div>
                 </div>
             </section>
 
             <!-- Skills -->
             <section id="skills">
-                <h2>Skills</h2>
+                <h2 data-ko="Skills" data-en="Skills">Skills</h2>
                 <div class="skills-grid">
-                    <span class="skill-category">Programming</span>
-                    <span class="skill-items">Python, R, SQL</span>
+                    <span class="skill-category" data-ko="Programming" data-en="Programming">Programming</span>
+                    <span class="skill-items" data-ko="Python, R, SQL" data-en="Python, R, SQL">Python, R, SQL</span>
                     
-                    <span class="skill-category">Deep Learning</span>
-                    <span class="skill-items">PyTorch, TensorFlow/Keras</span>
+                    <span class="skill-category" data-ko="Deep Learning" data-en="Deep Learning">Deep Learning</span>
+                    <span class="skill-items" data-ko="PyTorch, TensorFlow/Keras" data-en="PyTorch, TensorFlow/Keras">PyTorch, TensorFlow/Keras</span>
                     
-                    <span class="skill-category">Machine Learning</span>
-                    <span class="skill-items">Scikit-Learn</span>
+                    <span class="skill-category" data-ko="Machine Learning" data-en="Machine Learning">Machine Learning</span>
+                    <span class="skill-items" data-ko="Scikit-Learn" data-en="Scikit-Learn">Scikit-Learn</span>
                     
-                    <span class="skill-category">Robotics</span>
-                    <span class="skill-items">ROS2</span>
+                    <span class="skill-category" data-ko="Robotics" data-en="Robotics">Robotics</span>
+                    <span class="skill-items" data-ko="ROS2" data-en="ROS2">ROS2</span>
                     
-                    <span class="skill-category">Tools & Environment</span>
-                    <span class="skill-items">GitHub, Docker, Wandb</span>
+                    <span class="skill-category" data-ko="Tools & Environment" data-en="Tools & Environment">Tools & Environment</span>
+                    <span class="skill-items" data-ko="GitHub, Docker, Wandb" data-en="GitHub, Docker, Wandb">GitHub, Docker, Wandb</span>
                 </div>
             </section>
 
             <!-- Activities -->
             <section id="activities">
-                <h2>Activities</h2>
+                <h2 data-ko="Activities" data-en="Activities">Activities</h2>
                 <ul class="simple-list">
                     <li>
                         <div>
-                            <span class="list-title">X:AI (AI 학회)</span>
-                            <div class="list-subtitle">Conference Session</div>
+                            <span class="list-title" data-ko="X:AI (AI 학회)" data-en="X:AI (AI Conference)">X:AI (AI 학회)</span>
+                            <div class="list-subtitle" data-ko="Conference Session" data-en="Conference Session">Conference Session</div>
                         </div>
                         <span class="item-date">2024.07 - 2024.11</span>
                     </li>
                     <li>
                         <div>
-                            <span class="list-title">5th LG Aimers</span>
+                            <span class="list-title" data-ko="5th LG Aimers" data-en="5th LG Aimers">5th LG Aimers</span>
                         </div>
                         <span class="item-date">2024.07 - 2024.08</span>
                     </li>
                     <li>
                         <div>
-                            <span class="list-title">D&A (데이터 분석 학회)</span>
-                            <div class="list-subtitle">ML, DL, Conference Session</div>
+                            <span class="list-title" data-ko="D&A (데이터 분석 학회)" data-en="D&A (Data Analysis Society)">D&A (데이터 분석 학회)</span>
+                            <div class="list-subtitle" data-ko="ML, DL, Conference Session" data-en="ML, DL, Conference Session">ML, DL, Conference Session</div>
                         </div>
                         <span class="item-date">2019 - 2020</span>
                     </li>
@@ -714,26 +741,26 @@
 
             <!-- Awards -->
             <section id="awards">
-                <h2>Awards</h2>
+                <h2 data-ko="Awards" data-en="Awards">Awards</h2>
                 <ul class="simple-list">
                     <li>
                         <div>
-                            <span class="list-title">제4회 빅스타 경진대회 특별상</span>
-                            <div class="list-subtitle">천연가스 수요 장기 시계열 예측 모델 개발</div>
+                            <span class="list-title" data-ko="제4회 빅스타 경진대회 특별상" data-en="4th Big Star Competition Special Award">제4회 빅스타 경진대회 특별상</span>
+                            <div class="list-subtitle" data-ko="천연가스 수요 장기 시계열 예측 모델 개발" data-en="Development of Long-term Time Series Forecasting Model for Natural Gas Demand">천연가스 수요 장기 시계열 예측 모델 개발</div>
                         </div>
                         <span class="item-date">2022.10</span>
                     </li>
                     <li>
                         <div>
-                            <span class="list-title">D&A 제1회 산학연계공모전 1위 (Kaggle)</span>
-                            <div class="list-subtitle">고객 – 매니저 매칭 모델 개발</div>
+                            <span class="list-title" data-ko="D&A 제1회 산학연계공모전 1위 (Kaggle)" data-en="D&A 1st Industry-Academia Competition 1st Place (Kaggle)">D&A 제1회 산학연계공모전 1위 (Kaggle)</span>
+                            <div class="list-subtitle" data-ko="고객 – 매니저 매칭 모델 개발" data-en="Customer-Manager Matching Model Development">고객 – 매니저 매칭 모델 개발</div>
                         </div>
                         <span class="item-date">2021.12</span>
                     </li>
                     <li>
                         <div>
-                            <span class="list-title">대전시 빅데이터 분석 공모전 2위</span>
-                            <div class="list-subtitle">주차난 해결을 위한 주차장 수요 예측 모델 개발</div>
+                            <span class="list-title" data-ko="대전시 빅데이터 분석 공모전 2위" data-en="Daejeon City Big Data Analysis Competition 2nd Place">대전시 빅데이터 분석 공모전 2위</span>
+                            <div class="list-subtitle" data-ko="주차난 해결을 위한 주차장 수요 예측 모델 개발" data-en="Development of Parking Demand Prediction Model to Solve Parking Problems">주차난 해결을 위한 주차장 수요 예측 모델 개발</div>
                         </div>
                         <span class="item-date">2021.06</span>
                     </li>
@@ -742,26 +769,26 @@
 
             <!-- Certificates -->
             <section id="certificates">
-                <h2>Certificates</h2>
+                <h2 data-ko="Certificates" data-en="Certificates">Certificates</h2>
                 <ul class="simple-list">
                     <li>
-                        <span class="list-title">OPIc IH</span>
+                        <span class="list-title" data-ko="OPIc IH" data-en="OPIc IH">OPIc IH</span>
                         <span class="item-date">2025.07</span>
                     </li>
                     <li>
-                        <span class="list-title">TOEIC 910</span>
+                        <span class="list-title" data-ko="TOEIC 910" data-en="TOEIC 910">TOEIC 910</span>
                         <span class="item-date">2025.01</span>
                     </li>
                     <li>
-                        <span class="list-title">SQL개발자(SQLD)</span>
+                        <span class="list-title" data-ko="SQL개발자(SQLD)" data-en="SQL Developer (SQLD)">SQL개발자(SQLD)</span>
                         <span class="item-date">2022.09</span>
                     </li>
                     <li>
-                        <span class="list-title">빅데이터분석기사</span>
+                        <span class="list-title" data-ko="빅데이터분석기사" data-en="Big Data Analyst">빅데이터분석기사</span>
                         <span class="item-date">2021.12</span>
                     </li>
                     <li>
-                        <span class="list-title">데이터분석 준전문가(ADsP)</span>
+                        <span class="list-title" data-ko="데이터분석 준전문가(ADsP)" data-en="Associate Data Analyst (ADsP)">데이터분석 준전문가(ADsP)</span>
                         <span class="item-date">2019.09</span>
                     </li>
                 </ul>
@@ -774,5 +801,54 @@
             <p>© 2026 Han Seung Soo. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        let currentLang = 'ko';
+        
+        const langBtn = document.getElementById('langBtn');
+        
+        function updateLanguage(lang) {
+            currentLang = lang;
+            const elements = document.querySelectorAll('[data-ko][data-en]');
+            
+            elements.forEach(element => {
+                if (lang === 'en') {
+                    const enText = element.getAttribute('data-en');
+                    if (element.tagName === 'LI' || element.tagName === 'P') {
+                        element.innerHTML = enText.replace(/&#10;/g, '<br>');
+                    } else {
+                        element.textContent = enText.replace(/&#10;/g, '\n');
+                    }
+                } else {
+                    const koText = element.getAttribute('data-ko');
+                    if (element.tagName === 'LI' || element.tagName === 'P') {
+                        element.innerHTML = koText.replace(/&#10;/g, '<br>');
+                    } else {
+                        element.textContent = koText.replace(/&#10;/g, '\n');
+                    }
+                }
+            });
+            
+            // Update button text
+            langBtn.textContent = lang === 'en' ? '한국어' : 'English';
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+        }
+        
+        langBtn.addEventListener('click', () => {
+            const newLang = currentLang === 'ko' ? 'en' : 'ko';
+            updateLanguage(newLang);
+        });
+        
+        // Load saved preference
+        const savedLang = localStorage.getItem('preferredLang');
+        if (savedLang && savedLang !== 'ko') {
+            updateLanguage(savedLang);
+        }
+    </script>
 </body>
 </html>
